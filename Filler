@@ -1,9 +1,3 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -65,51 +59,6 @@ public class TripRace {
             while ((bytesRead = inputStream.read(buffer)) != -1) {
                 writer.write(new String(buffer, 0, bytesRead));
             }
-        }
-    }
-}
-
-public class GoogleMapsAPIExample {
-    public static void main(String[] args) {
-        String apiKey = "YOUR_API_KEY"; // Replace with your actual API key
-        String departureAddress = "1600 Amphitheatre Parkway, Mountain View, CA";
-        String destinationAddress = "1 Infinite Loop, Cupertino, CA";
-
-        try {
-            // Encode the addresses
-            String encodedDepartureAddress = URLEncoder.encode(departureAddress, "UTF-8");
-            String encodedDestinationAddress = URLEncoder.encode(destinationAddress, "UTF-8");
-
-            // Create the URL for the API request
-            String apiUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" +
-                    encodedDepartureAddress + "&destinations=" + encodedDestinationAddress +
-                    "&key=" + apiKey;
-
-            // Send the HTTP GET request
-            URL url = new URL(apiUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-
-            // Read the response
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            StringBuilder response = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                response.append(line);
-            }
-            reader.close();
-
-            // Parse the JSON response
-            String jsonResponse = response.toString();
-            // TODO: Parse the JSON and extract the durations for each mode of transport
-
-            // Print the trip durations
-            System.out.println("Driving duration: " + drivingDuration);
-            System.out.println("Walking duration: " + walkingDuration);
-            System.out.println("Transit duration: " + transitDuration);
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }
