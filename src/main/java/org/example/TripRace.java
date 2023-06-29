@@ -1,3 +1,5 @@
+package src.main.java.org.example;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;

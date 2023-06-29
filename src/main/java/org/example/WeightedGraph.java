@@ -1,5 +1,9 @@
-import java.awt.geom.QuadCurve2D;
-import java.util.*;
+package src.main.java.org.example;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class WeightedGraph {
     LinkedList<Vertex> vertexList;
@@ -27,33 +31,24 @@ public class WeightedGraph {
         }
         static public int getModeIndex (String mode) {
             switch(mode) {
-                case "walk":
+                case "WALKING":
                     return 0;
-                    break;
-                case "drive":
+                case "DRIVING":
                     return 1;
-                    break;
-                case "rideshare":
+                case "RIDESHARE":
                     return 2;
-                    break;
-                case "carRental":
+                case "CARRENTAL":
                     return 3;
-                    break;
-                case "bicycle":
+                case "BICYCLING":
                     return 4;
-                    break;
-                case "scooter":
+                case "SCOOTER":
                     return 5;
-                    break;
-                case "transit":
+                case "TRANSIT":
                     return 6;
-                    break;
-                case "bus":
+                case "BUS":
                     return 7;
-                    break;
                 default:
                     return -1;
-                    break;
             }
         }
 
