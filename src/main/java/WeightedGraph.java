@@ -1,6 +1,5 @@
 package src.main.java;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
@@ -154,11 +153,12 @@ public class WeightedGraph {
         this.edgeList = new LinkedList<>();
     }
 
-    public void addVertex(Vertex v) {
+    public Vertex addVertex(Vertex v) {
         this.vertexList.addLast(v);
+        return v;
     }
 
-    public void addEdge(Edge e) {
+    public Edge addEdge(Edge e) {
         this.edgeList.addLast(e);
 
         // make Vertex mode true at source and destination of the edge
@@ -166,9 +166,10 @@ public class WeightedGraph {
         this.vertexList.get(sIndex).modes[Vertex.getModeIndex(e.mode)] = true;
         int dIndex = getVertexIndex(e.destination.vertexName);
         this.vertexList.get(dIndex).modes[Vertex.getModeIndex(e.mode)] = true;
+        return this.edgeList.getLast();
     }
 
-    public void addEdge(Vertex source, Vertex destination, String mode, Integer duration, Double cost, Integer distance)
+    public Edge addEdge(Vertex source, Vertex destination, String mode, Integer duration, Double cost, Integer distance)
     {
         this.edgeList.addLast(new Edge(source, destination, mode, duration, cost, distance));
 
@@ -177,6 +178,7 @@ public class WeightedGraph {
         this.vertexList.get(sIndex).modes[Vertex.getModeIndex(mode)] = true;
         int dIndex = getVertexIndex(destination.vertexName);
         this.vertexList.get(dIndex).modes[Vertex.getModeIndex(mode)] = true;
+        return this.edgeList.getLast();
     }
     public void addGraph(WeightedGraph g) {
         // iterate over vertices of argument g
@@ -217,7 +219,7 @@ public class WeightedGraph {
         Iterator<Edge> edgeIterator = edgeList.iterator();
         while (edgeIterator.hasNext()) {
             Edge tempEdge = edgeIterator.next();
-            System.out.println("\n\nFrom: " + tempEdge.source.vertexName + " to " + tempEdge.destination.vertexName +
+            System.out.println("\n\nFrom: " + tempEdge.source.vertexName + "\nTo " + tempEdge.destination.vertexName +
                     "\nMode: " + tempEdge.mode + "\nDistance: " + tempEdge.distance +
                     "\nDuration: " + tempEdge.duration +
                     "\nCost: " + tempEdge.cost);
@@ -233,11 +235,7 @@ public class WeightedGraph {
         //Todo
     }
 
-
-    public static void main(String[] args) {
-        HashMap<String, Object> tempMetrics;
-
-        WeightedGraph graph = new WeightedGraph();
+    public void loadTestGraph1(WeightedGraph graph){
 
         // add vertices
         graph.addVertex(new Vertex(new Location(34.0333005,-84.5788771), "KSU Kennesaw"));
@@ -264,9 +262,39 @@ public class WeightedGraph {
         graph.addEdge(v3, v1, "RIDESHARE", 737, 21.36,11467);
         graph.addEdge(v3, v1, "BICYCLING", 2606, 0.00, 12898);
 
-
-
-
         graph.printGraph();
+    }
+    public void loadTestGraphDunMacysToPiedmont(WeightedGraph graph){
+
+        // add vertices
+        Vertex v1 = graph.addVertex(new Vertex(new Location(33.9228732,-84.3418493), "Macys - Perimeter Mall"));
+        Vertex v2 = graph.addVertex(new Vertex(new Location(33.921227,-84.344398), "Rail stop - Dunwoody Marta Station"));
+        Vertex v3 = graph.addVertex(new Vertex(new Location(33.789112,-84.387383), "Rail stop - Arts Center Marta Station"));
+        Vertex v4 = graph.addVertex(new Vertex(new Location(33.7892632,-84.3873414), "Bus stop - Arts Center Marta Station"));
+        Vertex v5 = graph.addVertex(new Vertex(new Location(33.8082253,-84.3934548), "Bus stop - Peachtree Rd at Collier Rd"));
+        Vertex v6 = graph.addVertex(new Vertex(new Location(33.8085817,-84.3943387), "Piedmont Hospital - Peachtree Rd"));
+
+
+        // add edges
+        // for testing clarity, making each vertex a separate variable
+
+        Edge e1 = graph.addEdge(v1, v2, "WALKING", 271, 0.00, 347);
+        Edge e2 = graph.addEdge(v2, v3, "TRANSIT", 900, 0.00, 17083);
+        Edge e3 = graph.addEdge(v3, v4, "WALKING", 18, 0.00, 17);
+        Edge e4 = graph.addEdge(v4, v5, "TRANSIT", 699, 0.00, 3083);
+        Edge e5 = graph.addEdge(v5, v6, "WALKING", 103, 0.00, 121);
+    }
+
+
+    public static void main(String[] args) {
+/*
+        WeightedGraph graph = new WeightedGraph();
+        graph.loadTestGraph1(graph);
+        graph.printGraph();
+*/
+
+        WeightedGraph dunToPiedmont = new WeightedGraph();
+        dunToPiedmont.loadTestGraphDunMacysToPiedmont(dunToPiedmont);
+        dunToPiedmont.printGraph();
     }
 }
