@@ -1,4 +1,4 @@
-package src.main.java.org.example;
+package src.main.java;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -120,14 +120,34 @@ public class WeightedGraph {
             this.destination = destination;
             this.mode = mode;
             this.duration = duration;
-            this.cost = cost;
             this.distance = distance;
+            this.cost = cost;
+            if (cost == 0.00d) {
+                this.cost = estimateCost(this);
+            }
         }
         public static double estimateCost(Edge e){
-            
-            return 0.00d;
+            switch(e.mode){
+                case "WALKING":
+                case "BICYCLING":
+                    return 0.00d;
+                case "DRIVING":
+                    return (.90d * e.distance);
+                case "RIDESHARE":
+                    return (10.0d + 1.60d * e.distance);
+                case "CARRENTAL":
+                    return (90.0d + .20 * e.distance);
+                case "SCOOTER":
+                    return 1.0d + .39d * e.duration;
+                case "TRANSIT":
+                case "BUS":
+                    return 2.50d;
+                default:
+                    return 0.00d;
+            }
         }
     }
+
 
     public WeightedGraph() {
         this.vertexList = new LinkedList<>();

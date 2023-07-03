@@ -1,4 +1,4 @@
-package src.main.java.org.example;
+package src.main.java;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -18,15 +18,15 @@ public class TripRace {
         try {
             // Driving directions
             String drivingUrl = buildDirectionsUrl(departureAddress, destinationAddress, "driving", apiKey);
-            saveDirectionsToJson(drivingUrl, "driving_directions.json");
+            saveDirectionsToJson(drivingUrl, "src/main/data/driving_directions.json");
 
             // Walking directions
             String walkingUrl = buildDirectionsUrl(departureAddress, destinationAddress, "walking", apiKey);
-            saveDirectionsToJson(walkingUrl, "walking_directions.json");
+            saveDirectionsToJson(walkingUrl, "src/main/data/walking_directions.json");
 
             // Public transportation directions
             String transitUrl = buildDirectionsUrl(departureAddress, destinationAddress, "transit", apiKey);
-            saveDirectionsToJson(transitUrl, "transit_directions.json");
+            saveDirectionsToJson(transitUrl, "src/main/data/transit_directions.json");
 
             System.out.println("Directions saved to JSON files.");
         } catch (IOException e) {
