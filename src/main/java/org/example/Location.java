@@ -1,15 +1,11 @@
-package src.main.java.org.example;
-
 public class Location {
-    double longitude;
-    double latitude;
+    private double longitude;
+    private double latitude;
 
-
-    public Location(double la, double lo) {
-        this.longitude = lo;
-        this.latitude = la;
+    public Location(double latitude, double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
-
 
     public double getLongitude() {
         return longitude;
@@ -18,6 +14,4 @@ public class Location {
     public double getLatitude() {
         return latitude;
     }
-
-
 }
