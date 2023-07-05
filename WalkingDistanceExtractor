@@ -1,0 +1,82 @@
+import java.io.FileReader;
+import java.io.IOException;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class WalkingDistanceExtractor {
+    public static void main(String[] args) {
+        try {
+            // Reads the JSON file
+            String jsonFilePath = "walking_directions.json";
+            String jsonString = readFile(jsonFilePath);
+
+            // Extracts and displays the data
+            extractAndDisplayData(jsonString);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static String readFile(String filePath) throws IOException {
+        StringBuilder content = new StringBuilder();
+        try (FileReader reader = new FileReader(filePath)) {
+            int character;
+            while ((character = reader.read()) != -1) {
+                content.append((char) character);
+            }
+        }
+        return content.toString();
+    }
+
+    private static void extractAndDisplayData(String jsonString) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonString);
+
+            JSONArray routesArray = jsonObject.getJSONArray("routes");
+            if (routesArray.length() > 0) {
+                JSONObject routeObject = routesArray.getJSONObject(0);
+
+                JSONArray legsArray = routeObject.getJSONArray("legs");
+                if (legsArray.length() > 0) {
+                    JSONObject legObject = legsArray.getJSONObject(0);
+
+                    // Extract start and end locations
+                    String startAddress = legObject.getString("start_address");
+                    JSONObject startLocation = legObject.getJSONObject("start_location");
+                    double startLatitude = startLocation.getDouble("lat");
+                    double startLongitude = startLocation.getDouble("lng");
+                    String endAddress = legObject.getString("end_address");
+                    JSONObject endLocation = legObject.getJSONObject("end_location");
+                    double endLatitude = endLocation.getDouble("lat");
+                    double endLongitude = endLocation.getDouble("lng");
+
+                    System.out.println("Start Address: " + startAddress);
+                    System.out.println("Start Location: Latitude: " + startLatitude + ", Longitude: " + startLongitude);
+                    System.out.println("End Address: " + endAddress);
+                    System.out.println("End Location: Latitude: " + endLatitude + ", Longitude: " + endLongitude);
+
+                    JSONArray stepsArray = legObject.getJSONArray("steps");
+                    for (int i = 0; i < stepsArray.length(); i++) {
+                        JSONObject stepObject = stepsArray.getJSONObject(i);
+
+                        // Extract step details
+                        String travelMode = stepObject.getString("travel_mode");
+                        String distanceText = stepObject.getJSONObject("distance").getString("text");
+                        int distanceValue = stepObject.getJSONObject("distance").getInt("value");
+                        String durationText = stepObject.getJSONObject("duration").getString("text");
+                        int durationValue = stepObject.getJSONObject("duration").getInt("value");
+
+                        System.out.println("Step " + (i + 1) + ":");
+                        System.out.println("Travel Mode: " + travelMode);
+                        System.out.println("Distance: " + distanceText + " (" + distanceValue + " meters)");
+                        System.out.println("Duration: " + durationText + " (" + durationValue + " seconds)");
+                        System.out.println("---------------------------");
+                    }
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+}
