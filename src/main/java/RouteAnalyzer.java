@@ -1,5 +1,6 @@
 package main.java;
 
+// This class is substantially undeveloped and is just the framework
 import java.util.Arrays;
 import java.util.List;
 public class RouteAnalyzer {
