@@ -28,7 +28,13 @@ public class WeightedGraph {
             this.location = location;
             this.vertexName = uniqueNameId;
         }
-        static public int getModeIndex (String mode) {
+        public Double getLongitude(){
+            return this.location.getLongitude();
+        }
+        public Double getLatitude(){
+            return this.location.getLatitude();
+        }
+        static public int getMode (String mode) {
             switch(mode) {
                 case "WALKING":
                     return 0;
@@ -52,7 +58,7 @@ public class WeightedGraph {
                     return -1;
             }
         }
-        static public String getModeName (int i){
+        static public String getMode (int i){
             switch(i) {
                 case 0:
                     return "WALKING";
@@ -130,19 +136,27 @@ public class WeightedGraph {
             return modes[7];
         }
 
+        public boolean isMatch(Vertex tempVer) {
+            //todo
+            // match rounded to 4 decimal places - about 10 meter, so 20 meter square box around location
+            if (this.location.isMatch(tempVer.location)){
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
+        }
     }
 
     static class Edge {
-        Vertex source;
-        Vertex destination;
+        Vertex start;
+        Vertex end;
         String mode;
         Integer duration;
         Double cost;
         Integer distance;
 
-        public Edge(Vertex source, Vertex destination, String mode, Integer duration, Double cost, Integer distance) {
-            this.source = source;
-            this.destination = destination;
+        public Edge(Vertex start, Vertex end, String mode, Integer duration, Double cost, Integer distance) {
+            this.start = start;
+            this.end = end;
             this.mode = mode;
             this.duration = duration;
             this.distance = distance;
@@ -188,22 +202,22 @@ public class WeightedGraph {
         this.edgeList.addLast(e);
 
         // make Vertex mode true at source and destination of the edge
-        int sIndex = getVertexIndex(e.source.vertexName);
-        this.vertexList.get(sIndex).modes[Vertex.getModeIndex(e.mode)] = true;
-        int dIndex = getVertexIndex(e.destination.vertexName);
-        this.vertexList.get(dIndex).modes[Vertex.getModeIndex(e.mode)] = true;
+        int sIndex = getVertexIndex(e.start.vertexName);
+        this.vertexList.get(sIndex).modes[Vertex.getMode(e.mode)] = true;
+        int dIndex = getVertexIndex(e.end.vertexName);
+        this.vertexList.get(dIndex).modes[Vertex.getMode(e.mode)] = true;
         return this.edgeList.getLast();
     }
 
-    public Edge addEdge(Vertex source, Vertex destination, String mode, Integer duration, Double cost, Integer distance)
+    public Edge addEdge(Vertex start, Vertex end, String mode, Integer duration, Double cost, Integer distance)
     {
-        this.edgeList.addLast(new Edge(source, destination, mode, duration, cost, distance));
+        this.edgeList.addLast(new Edge(start, end, mode, duration, cost, distance));
 
         // make Vertex mode true at source and destination of the edge
-        int sIndex = getVertexIndex(source.vertexName);
-        this.vertexList.get(sIndex).modes[Vertex.getModeIndex(mode)] = true;
-        int dIndex = getVertexIndex(destination.vertexName);
-        this.vertexList.get(dIndex).modes[Vertex.getModeIndex(mode)] = true;
+        int sIndex = getVertexIndex(start.vertexName);
+        this.vertexList.get(sIndex).modes[Vertex.getMode(mode)] = true;
+        int dIndex = getVertexIndex(end.vertexName);
+        this.vertexList.get(dIndex).modes[Vertex.getMode(mode)] = true;
         return this.edgeList.getLast();
         //
     }
@@ -211,7 +225,17 @@ public class WeightedGraph {
         // iterate over vertices of argument g
         ListIterator<Vertex> vIterator = (ListIterator<Vertex>) g.vertexList.iterator();
         while (vIterator.hasNext()) {
-            this.vertexList.addLast(vIterator.next());
+            Vertex tempVer = vIterator.next();
+            Boolean isUnique = true;
+            for (Vertex mainVertex : this.vertexList) {
+                if (mainVertex.isMatch(tempVer)) {
+                    isUnique = false;
+                    continue;
+                }
+            }
+            if (isUnique) {
+                this.addVertex(tempVer);
+            }
         }
 
         // iterate over edges of argument g
@@ -246,7 +270,7 @@ public class WeightedGraph {
         Iterator<Edge> edgeIterator = edgeList.iterator();
         while (edgeIterator.hasNext()) {
             Edge tempEdge = edgeIterator.next();
-            System.out.println("\n\nFrom: " + tempEdge.source.vertexName + "\nTo " + tempEdge.destination.vertexName +
+            System.out.println("\n\nFrom: " + tempEdge.start.vertexName + "\nTo " + tempEdge.end.vertexName +
                     "\nMode: " + tempEdge.mode + "\nDistance: " + tempEdge.distance +
                     "\nDuration: " + tempEdge.duration +
                     "\nCost: " + tempEdge.cost);
