@@ -19,7 +19,7 @@ public class WeightedGraph {
          * Rideshare is allows almost anywhere.  In some places like the airport there are specific pickup areas.
          * Car Rental locations - where you can rent a car, for instance, the airport car rental lots
          * Bicycle is allowed in most places with stops, but changing to/from bike means bike rental or locking rack.
-         * Biking is not allowed on 7the Interstate
+         * Biking is not allowed on the Interstate
          * Scooter Rental Locations - where you can rent a scooter.
          * */
 
