@@ -1,103 +1,103 @@
 package main.java;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.junit.jupiter.api.Test;
 
-public class GeoModel {
-    WeightedGraph fastestRoute = new WeightedGraph();
-    WeightedGraph cheapestRoute = new WeightedGraph();
-    WeightedGraph originAreaGeoMap = new WeightedGraph();
-    WeightedGraph destinationAreaGeoMap = new WeightedGraph();
-    List<WeightedGraph> routeList = new ArrayList<>();
+import static org.junit.jupiter.api.Assertions.*;
 
+class GeoModelTest {
 
-    public GeoModel() {
-    }
-    public WeightedGraph createGeoMap(Location area, Integer radiusMeters){
-        //Todo
-        return new WeightedGraph();
-    }
-    public WeightedGraph createGeoMap(Location origin, Location destination, List<String> modes){
-        //Todo
-        return new WeightedGraph();
-    }
-    public static WeightedGraph removeExtraVerticesFromRoute(WeightedGraph route) {
-        String lastMode = "";
-        int listSize = route.edgeList.size();
-        for (int i = 0; i<listSize; i++) {
-            if (lastMode == route.edgeList.get(i).mode) {
-                WeightedGraph.Edge edge1 = route.edgeList.get(i-1);
-                WeightedGraph.Edge edge2 = route.edgeList.get(i);
-                edge1.distance += edge2.distance;
-                edge1.duration += edge2.duration;
-                edge1.cost += edge2.cost;
-                edge1.end = edge2.end;
-                route.edgeList.set(i-1, edge1);
-                route.edgeList.remove(i); listSize--;
-                route.vertexList.remove(route.getVertex(edge2.start.vertexName));
-                i--;
-            }
-            lastMode = route.edgeList.get(i).mode;
-        }
-        return route;
-    }
-    public WeightedGraph createRouteFromApi(Location origin, Location destination) {
-        //Todo - Test and Confirm
-        RouteRequest transitRoutes = new RouteRequest();
-        WeightedGraph transitMap = transitRoutes.getAPIWeightedGraph(origin, destination, "TRANSIT");
-        transitMap = removeExtraVerticesFromRoute(transitMap);
-        return transitMap;
+    @Test
+    void createGeoMap() {
     }
 
-    public static WeightedGraph removeDuplicateVertices(WeightedGraph graph) {
- /*     // This version is not dependent on order, but way less efficient and more complex.  Save in case
-        // needed for combined weighted graphs that are not linear.
-        */
-        // Remove duplicate vertices and reassign edges to kept vertex
-        int vLSize = graph.vertexList.size();
-        for (int i = 0; i < vLSize; i++) {
-            for (int j = i + 1; j < vLSize; j++) {
-                if (graph.vertexList.get(i).isMatch(graph.vertexList.get(j))) {
-                    // redirect edges from vert j to vert i so you can delete vertex j
-                    // delete edges between the two matched vertices
-                    int eLSize = graph.edgeList.size();
-                    for (int k = 0; k < eLSize; k++) {
-                        if (graph.edgeList.get(k).start.isMatch(graph.vertexList.get(j))) {
-                            graph.edgeList.get(k).start = graph.vertexList.get(i);
-                        }
-                        if (graph.edgeList.get(k).end.isMatch(graph.vertexList.get(j))) {
-                            graph.edgeList.get(k).end = graph.vertexList.get(i);
-                        }
-                        if (graph.edgeList.get(k).start.isMatch(graph.edgeList.get(k).end)) {
-                            graph.edgeList.remove(k);
-                            eLSize--;
-                            k--;
-                        }
-                    }
-                    graph.vertexList.remove(j);
-                    vLSize--;
-                    j--;
-                }
-            }
-        }
-        // Remove duplicate edges
-        int eLSize = graph.edgeList.size();
-        for (int i = 0; i < eLSize; i++) {
-            for (int j = i + 1; j < eLSize; j++) {
-                if (graph.edgeList.get(i).mode == (graph.edgeList.get(j).mode)) {
-                    // reduce repeated lookups with local variables
-                    WeightedGraph.Edge edge1 = graph.edgeList.get(i);
-                    WeightedGraph.Edge edge2 = graph.edgeList.get(j);
-                    if (edge1.start.isMatch(edge2.start) && (edge1.end.isMatch(edge2.end))) {
-                        graph.edgeList.remove(j);  eLSize--; j--;
-                    }
-                    if (edge1.start.isMatch(edge2.end) && (edge1.end.isMatch(edge1.start))) {
-                        graph.edgeList.remove(j);  eLSize--; j--;
-                    }
-                }
-            }
-        }
+    @Test
+    void testCreateGeoMap() {
+    }
+
+    @Test
+    void removeExtraVerticesFromRoute() {
+        WeightedGraph testRoute = createTestGraphWithUnchangedMode();
+        testRoute = GeoModel.removeExtraVerticesFromRoute(testRoute);
+        assertEquals(5, testRoute.vertexList.size());
+        assertEquals(4, testRoute.edgeList.size());
+    }
+
+    @Test
+    void createRouteFromApi() {
+    }
+
+    @Test
+    void removeDuplicateVertices() {
+        WeightedGraph testGeoModel = createTestGraphWithDuplicateVertices();
+        testGeoModel = GeoModel.removeDuplicateVertices(testGeoModel);
+        assertEquals(7, testGeoModel.vertexList.size());
+        assertEquals(8, testGeoModel.edgeList.size());
+    }
+
+    public WeightedGraph createTestGraphWithUnchangedMode() {
+
+        // add vertices
+        WeightedGraph graph = new WeightedGraph();
+        WeightedGraph.Vertex v1 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.9228732,-84.3418493), "Macys - Perimeter Mall"));
+        WeightedGraph.Vertex v2 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.921227,-84.344398), "Rail stop - Dunwoody Marta Station"));
+        WeightedGraph.Vertex v3 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.789112,-84.387383), "Rail stop - Arts Center Marta Station"));
+        WeightedGraph.Vertex v4 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.7892632,-84.3873414), "Bus stop - Arts Center Marta Station"));
+        WeightedGraph.Vertex v5 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.8082253,-84.3934548), "Bus stop - Peachtree Rd at Collier Rd"));
+        WeightedGraph.Vertex v6 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.8085817,-84.3943387), "Piedmont Hospital - Peachtree Rd"));
+
+
+        // add edges
+        // for testing clarity, making each vertex a separate variable
+
+        graph.addEdge(v1, v2, "WALKING", 271, 0.00, 347);
+        graph.addEdge(v2, v3, "TRANSIT", 900, 0.00, 17083);
+        graph.addEdge(v3, v4, "TRANSIT", 18, 0.00, 17);
+        graph.addEdge(v4, v5, "WALKING", 699, 0.00, 3083);
+        graph.addEdge(v5, v6, "TRANSIT", 103, 0.00, 121);
+
         return graph;
     }
+
+    public WeightedGraph createTestGraphWithDuplicateVertices() {
+
+        // add vertices from two routes
+        // route 1  - Walking and Transit
+        WeightedGraph graph = new WeightedGraph();
+        WeightedGraph.Vertex v01 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.9228732,-84.3418493), "Macys - Perimeter Mall"));
+        WeightedGraph.Vertex v02 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.921227,-84.344398), "Rail stop - Dunwoody Marta Station"));
+        WeightedGraph.Vertex v03 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.789112,-84.387383), "Rail stop - Arts Center Marta Station"));
+        WeightedGraph.Vertex v04 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.7892632,-84.3873414), "Bus stop - Arts Center Marta Station"));
+        WeightedGraph.Vertex v05 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.8082253,-84.3934548), "Bus stop - Peachtree Rd at Collier Rd"));
+        WeightedGraph.Vertex v06 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.8085817,-84.3943387), "Piedmont Hospital - Peachtree Rd"));
+
+        // route 2   - Driving and Transit
+        WeightedGraph.Vertex v07 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.9228732,-84.3418493), "Macys - Perimeter Mall"));  //duplicate
+        WeightedGraph.Vertex v08 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.9251111,-84.3401111), "Rail stop - Dunwoody Marta Station"));  // unique - parking lot vs. station
+        WeightedGraph.Vertex v09 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.789114,-84.387384), "Rail stop - Arts Center Marta Station"));  // duplicate by proximity
+        WeightedGraph.Vertex v10 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.7892632,-84.3873414), "Bus stop - Arts Center Marta Station"));  // duplicate
+        WeightedGraph.Vertex v11 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.8082253,-84.3934548), "Bus stop - Peachtree Rd at Collier Rd"));  // duplicate
+        WeightedGraph.Vertex v12 = graph.addVertex(new WeightedGraph.Vertex(new Location(33.8085817,-84.3943387), "Piedmont Hospital - Peachtree Rd"));  // duplicate
+
+
+        // add edges from two routes
+
+        // route 1
+        graph.addEdge(v01, v02, "WALKING", 271, 0.00, 347);
+        graph.addEdge(v02, v03, "TRANSIT", 900, 0.00, 17083);
+        graph.addEdge(v03, v04, "WALKING", 18, 0.00, 17);
+        graph.addEdge(v04, v05, "TRANSIT", 699, 0.00, 3083);
+        graph.addEdge(v05, v06, "WALKING", 103, 0.00, 121);
+
+        // route 2
+        graph.addEdge(v07, v08, "DRIVING", 60, 0.00, 347);  // Unique
+        graph.addEdge(v08, v09, "TRANSIT", 900, 0.00, 17083);  // Unique - v08 is unique
+        graph.addEdge(v09, v10, "WALKING", 18, 0.00, 17);  // duplicate
+        graph.addEdge(v10, v11, "TRANSIT", 699, 0.00, 3083);  // duplicate
+        graph.addEdge(v11, v12, "WALKING", 103, 0.00, 121);  // duplicate
+
+        return graph;
+    }
+
+
+
 }
