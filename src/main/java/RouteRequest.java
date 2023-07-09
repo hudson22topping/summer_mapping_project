@@ -79,7 +79,7 @@ public class RouteRequest {
     public void setDestination(String d){
         this.destination = d;
     }
-    public void generateTransitRequest() {
+    public void generateTransitRequestTest1() {
         setOrigin("Dunwoody Marta Station");
         setDestination("Piedmont Atlanta Hospital");
         setBikePref(1);  setBusPref(2);  setDrivePref(0);  setTransitPref(3);  setScooterPref(1);
@@ -87,7 +87,17 @@ public class RouteRequest {
         setPriority("CHEAP");
     }
 
+    public void generateTransitRequestTest2() {
+        setOrigin("Macys Perimeter Mall Dunwoody");
+        setDestination("Piedmont Atlanta Hospital");
+        setBikePref(1);  setBusPref(2);  setDrivePref(0);  setTransitPref(3);  setScooterPref(1);
+        setCarRentalPref(0);  setRidesharePref(0); setWalkPref(1);
+        setPriority("CHEAP");
+    }
+
+
     public WeightedGraph getAPIWeightedGraph (Location origin, Location destination, String mode) {
+
         return new WeightedGraph();
     }
 }
