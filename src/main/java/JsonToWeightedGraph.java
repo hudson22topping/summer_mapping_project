@@ -6,8 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-
-public class testJsonToWeightedGraph {
+public class JsonToWeightedGraph {
     public static void main(String[] args) {
         // Specify the path to the walking directions JSON file
         String walkingDirectionsFilePath = "src/main/java/walking_directions.json";//C:\Users\rober\IdeaProjects\summer_mapping\walking_directions.json
@@ -54,27 +53,33 @@ public class testJsonToWeightedGraph {
                     String startVertexName = step.getJSONObject("start_location").toString();
                     String endVertexName = step.getJSONObject("end_location").toString();
 
-                    // Construct the source vertex
-                    WeightedGraph.Vertex source = new WeightedGraph.Vertex(
-                            new WeightedGraph.Location(0.0, 0.0),
-                            startVertexName
-                    );
-                    // Construct the destination vertex
-                    WeightedGraph.Vertex destination = new WeightedGraph.Vertex(
-                            new WeightedGraph.Location(0.0, 0.0),
-                            endVertexName
-                    );
+                    // Add the start vertex if it doesn't exist
+                    if (weightedGraph.getVertex(startVertexName) == null) {
+                        weightedGraph.addVertex(new WeightedGraph.Vertex(new WeightedGraph.Location(0.0, 0.0), startVertexName));
+                    }
+                    // Add the end vertex if it doesn't exist
+                    if (weightedGraph.getVertex(endVertexName) == null) {
+                        weightedGraph.addVertex(new WeightedGraph.Vertex(new WeightedGraph.Location(0.0, 0.0), endVertexName));
+                    }
 
-                    String mode = "WALKING"; // Assuming all steps are for walking mode
+                    // Get the existing start and end vertices
+                    WeightedGraph.Vertex source = weightedGraph.getVertex(startVertexName);
+                    WeightedGraph.Vertex destination = weightedGraph.getVertex(endVertexName);
 
-                    weightedGraph.addEdge(source, destination, mode, duration, 0.0, distance);
+                    // Check if vertices are found
+                    if (source != null && destination != null) {
+                        String mode = "WALKING"; // Assuming all steps are for walking mode
+                        weightedGraph.addEdge(source, destination, mode, duration, 0.0, distance);
+                    } else {
+                        // Handle case when source or destination vertex is not found
+                        System.out.println("Source or destination vertex not found: " + startVertexName + ", " + endVertexName);
+                    }
                 }
             }
         }
 
         return weightedGraph;
     }
-
 
 
 }
