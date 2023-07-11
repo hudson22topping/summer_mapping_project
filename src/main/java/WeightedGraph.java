@@ -1,4 +1,4 @@
-package main.java;
+//ackage main.java;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -195,17 +195,21 @@ public class WeightedGraph {
         return this.edgeList.getLast();
     }
 
-    public Edge addEdge(Vertex source, Vertex destination, String mode, Integer duration, Double cost, Integer distance)
-    {
-        this.edgeList.addLast(new Edge(source, destination, mode, duration, cost, distance));
-
-        // make Vertex mode true at source and destination of the edge
+    public Edge addEdge(Vertex source, Vertex destination, String mode, Integer duration, Double cost, Integer distance) {
         int sIndex = getVertexIndex(source.vertexName);
-        this.vertexList.get(sIndex).modes[Vertex.getModeIndex(mode)] = true;
         int dIndex = getVertexIndex(destination.vertexName);
-        this.vertexList.get(dIndex).modes[Vertex.getModeIndex(mode)] = true;
-        return this.edgeList.getLast();
-        //
+
+        if (sIndex != -1 && dIndex != -1) {
+            this.edgeList.addLast(new Edge(source, destination, mode, duration, cost, distance));
+
+            // make Vertex mode true at source and destination of the edge
+            this.vertexList.get(sIndex).modes[Vertex.getModeIndex(mode)] = true;
+            this.vertexList.get(dIndex).modes[Vertex.getModeIndex(mode)] = true;
+
+            return this.edgeList.getLast();
+        } else {
+            throw new IllegalArgumentException("Source or destination vertex not found.");
+        }
     }
     public void addGraph(WeightedGraph g) {
         // iterate over vertices of argument g
@@ -233,8 +237,13 @@ public class WeightedGraph {
 
     public Vertex getVertex(String s) {
         int vIndex = getVertexIndex(s);
-        return this.vertexList.get(vIndex);
+        if (vIndex != -1) {
+            return this.vertexList.get(vIndex);
+        } else {
+            return null; // Return null if vertex not found
+        }
     }
+
 
     public void printGraph(){
         Iterator<Vertex> vertexIterator = vertexList.iterator();
@@ -320,5 +329,27 @@ public class WeightedGraph {
         // graph.loadTestGraph1(graph);
         graph.loadTestGraphDunMacysToPiedmont(graph);
         graph.printGraph();
+    }
+
+    static class Location {
+        double longitude;
+        double latitude;
+
+
+        public Location(double la, double lo) {
+            this.longitude = lo;
+            this.latitude = la;
+        }
+
+
+        public double getLongitude() {
+            return longitude;
+        }
+
+        public double getLatitude() {
+            return latitude;
+        }
+
+
     }
 }
