@@ -79,10 +79,11 @@ public class RouteRequest {
         this.modePref[7] = p;
     }
     public LinkedList<String> getModePrefAsList(){
+
         LinkedList<String> preferredModes = new LinkedList<>();
-        for (int mode : this.modePref){
-            if (mode != 0){
-                preferredModes.addLast(WeightedGraph.Edge.getMode(mode));
+        for (int i = 0; i < modePref.length; i++){
+            if (modePref[i] != 0){
+                preferredModes.addLast(WeightedGraph.Edge.getMode(i));
             }
         }
         return preferredModes;
