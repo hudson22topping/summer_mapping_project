@@ -1,0 +1,90 @@
+package main.java;
+
+import java.util.Scanner;
+
+public class RoutePlannerUI {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        //RoutePlanner routePlanner = new RoutePlanner(); // Replace with your implementation of route planning logic
+
+        // User information (replace with your implementation)
+        UserAccount userAccount = new UserAccount("user123"); // Replace with your implementation of retrieving user information
+
+        // Set default preferences based on user account (replace with your implementation)
+        String departure = ""; // Default departure
+        String destination = ""; // Default destination
+
+        // Prompt the user if they want to use default preferences or change them
+        System.out.println("Welcome to the Route Planner, " + userAccount.accountID + "!");
+        System.out.println("Default Departure: " + departure);
+        System.out.println("Default Destination: " + destination);
+
+        System.out.println("\nWould you like to use your default preferences? (yes/no)");
+        String choice = scanner.nextLine();
+
+        if (choice.equalsIgnoreCase("no")) {
+            System.out.println("\nSetting custom preferences...");
+            setCustomPreferences(userAccount, scanner); // Set custom preferences
+        }
+
+        // Get the preferences from the user account
+        double walkWeight = getWeight(userAccount.getWalkPref());
+        double driveWeight = getWeight(userAccount.getDrivePref());
+        double budget = getBudget(userAccount.getPriority());
+
+        // Create an instance of TaasApplication
+        TaasApplication taasApplication = new TaasApplication();
+
+        // Set up the RouteRequest based on user preferences
+        //RouteRequest routeRequest = taasApplication.userSetup(userAccount);
+
+        // Set the origin and destination from user input
+        //routeRequest.setOrigin(departure);
+        //routeRequest.setDestination(destination);
+
+        // Call the route request logic with the provided information and preferences
+        //WeightedGraph weightedGraph = taasApplication.getAPIWeightedGraph(routeRequest);
+
+        // Call your route planning logic with the provided information and the weighted graph
+        // Replace the output with your actual route planning logic
+        //String bestRoute = routePlanner.findBestRoute(departure, destination, walkWeight, driveWeight, budget, weightedGraph);
+
+        //System.out.println("\nBest Route: " + bestRoute);
+        System.out.println("Thank you for using the Route Planner!");
+    }
+
+    private static void setCustomPreferences(UserAccount userAccount, Scanner scanner) {
+        // Customize preferences based on the user's account (replace with your implementation)
+        // You can use the existing methods in the UserAccount class to set the preferences
+        // Example:
+        userAccount.setWalkPref(1);
+        userAccount.setDrivePref(0);
+        // ...
+    }
+
+    private static double getWeight(int preference) {
+        switch (preference) {
+            case 0:
+                return 0.0; // No preference
+            case 1:
+                return 0.5; // Moderate preference
+            case 2:
+                return 1.0; // High preference
+            default:
+                return 0.0; // Default to no preference
+        }
+    }
+
+    private static double getBudget(String priority) {
+        switch (priority.toUpperCase()) {
+            case "QUICK":
+                return 100.0; // High budget
+            case "CHEAP":
+                return 50.0; // Moderate budget
+            case "FREE":
+                return 0.0; // No budget
+            default:
+                return 0.0; // Default to no budget
+        }
+    }
+}
