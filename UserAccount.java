@@ -62,6 +62,8 @@ public class UserAccount {
     public void setBusPref(int p) {
         this.modePref[7] = p;
     }
+    public int getFlightPref() {this.modePref[8];}
+    public void setFlightPref(int p) {this.modePref[8] = p;}
     public void initializeTransitUser(){
         setBikePref(0);
         setBusPref(2);
@@ -71,6 +73,7 @@ public class UserAccount {
         setScooterPref(1);
         setTransitPref(3);
         setWalkPref(1);
+        setFlightPref(0);
 
         setPriority("CHEAP");
     }
@@ -83,6 +86,7 @@ public class UserAccount {
         setScooterPref(1);
         setTransitPref(1);
         setWalkPref(0);
+        setFlightPref(0);
 
         setPriority("QUICK");
     }
@@ -95,6 +99,7 @@ public class UserAccount {
         setScooterPref(2);
         setTransitPref(1);
         setWalkPref(2);
+        setFlightPref(0);
 
         setPriority("CHEAP");
     }
@@ -107,6 +112,7 @@ public class UserAccount {
         setScooterPref(0);
         setTransitPref(0);
         setWalkPref(0);
+        setFlightPref(0);
 
         setPriority(" ");
     }

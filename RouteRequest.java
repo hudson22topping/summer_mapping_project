@@ -1,5 +1,6 @@
 package main.java;
 
+import java.io.IOException;
 import java.util.LinkedList;
 
 public class RouteRequest {
@@ -112,8 +113,13 @@ public class RouteRequest {
 
 
     public WeightedGraph getAPIWeightedGraph (String origin, String destination, String mode) {
-
-        return new WeightedGraph();
+        // todo - complete getAPIWeightedGraph() method
+        // create connector
+        ApiConnector googleConnector = new ApiConnector(origin, destination, mode);
+        String jsonOutput = googleConnector.saveJsonToString();
+        WeightedGraph weightedGraph;
+        weightedGraph = googleConnector.constructWeightedGraph(jsonOutput);
+        return weightedGraph;
     }
 
     public void setModePrefFromAccount(UserAccount uAcct) {

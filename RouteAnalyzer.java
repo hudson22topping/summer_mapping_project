@@ -1,35 +1,42 @@
 package main.java;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 public class RouteAnalyzer {
-    WeightedGraph geoModel = new WeightedGraph();
+    WeightedGraph routeModel = new WeightedGraph();
     RouteRequest userRequest = new RouteRequest();
 
-    public RouteAnalyzer(WeightedGraph geoModel, RouteRequest userRequest) {
-        this.geoModel = geoModel;
+    public RouteAnalyzer(WeightedGraph routeModel, RouteRequest userRequest) {
+        this.routeModel = routeModel;
         this.userRequest = userRequest;
     }
 
     public RouteAnalyzer() {
-        this.geoModel = new WeightedGraph();
+        this.routeModel = new WeightedGraph();
         this.userRequest = new RouteRequest();
     }
-    public WeightedGraph findRoutes(RouteRequest r, WeightedGraph w){
 
-        for(int i = 0; i < r.modePref.length; i++) {
-            if (r.modePref[i] == 3){
-                this.analyzeModel(r.modePref[i], w);
+    public LinkedList<WeightedGraph> findRoutes(){
+        LinkedList<WeightedGraph> routeOptions = new LinkedList<>();
+        Boolean hasMandatedMode = Boolean.FALSE;
+        for(int i = 0; i < userRequest.modePref.length; i++) {
+            if (userRequest.modePref[i] == 3) {
+                routeOptions.add(getBest1ModeRoute(userRequest.modePref[i], routeModel, userRequest.priority));
+                hasMandatedMode = Boolean.TRUE;
             }
-
-
         }
-
-
-        return new WeightedGraph();
+        if (routeOptions.size() > 2) { // no need for additional analysis
+            return routeOptions;
+        } else {
+//            getBestGeneralRoute
+// todo - finish findRoutes method
+        }
+        return routeOptions;
     }
 
-    private void analyzeModel(int mode, WeightedGraph geoModel) {
-
+    private WeightedGraph getBest1ModeRoute(int mode, WeightedGraph geoModel, String priority) {
+        // Todo - complete getBest1ModeRoute
+        return new WeightedGraph();
     }
 }

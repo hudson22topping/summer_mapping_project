@@ -9,7 +9,6 @@ public class WeightedGraph {
     LinkedList<Edge> edgeList;
 
     static class Vertex {
-        //Todo
         Location location;
         String vertexName;
         //0-walk, 1-drive, 2-rideshare, 3-carRental, 4-bicycle, 5-scooter, 6-transit, 7-bus, 8-airplane, 9-unused
@@ -90,7 +89,6 @@ public class WeightedGraph {
         }
 
         public boolean isMatch(Vertex tempVer) {
-            //todo
             // match rounded to 4 decimal places - about 10 meter, so 20 meter square box around location
             if (this.location.isMatch(tempVer.location)){
                 return Boolean.TRUE;
@@ -259,7 +257,9 @@ public class WeightedGraph {
 
     public Vertex getVertex(String s) {
         int vIndex = getVertexIndex(s);
-        return this.vertexList.get(vIndex);
+        if (vIndex >= 0) {
+            return this.vertexList.get(vIndex);
+        } else {return null;}
     }
 
     public void printGraph(){

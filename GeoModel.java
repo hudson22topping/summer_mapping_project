@@ -1,5 +1,6 @@
 package main.java;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,25 +15,28 @@ public class GeoModel {
 
     public GeoModel() {
     }
+    public GeoModel(RouteRequest rr) {
+        createGeoModel(rr.getOrigin(), rr.getDestination(), rr.getModePrefAsList());
+    }
 
 
-    public WeightedGraph createGeoModel(String origin, String destination, List<String> modes){
-        //Todo
+    public WeightedGraph createGeoModel(String origin, String destination, List<String> modes) {
         RouteRequest tempRequest = new RouteRequest();
         WeightedGraph coreRoute = removeExtraVerticesFromRoute
-                (new RouteRequest().getAPIWeightedGraph(origin, destination, "TRANSIT"));
+                (tempRequest.getAPIWeightedGraph(origin, destination, "TRANSIT"));
         this.routeList.add(coreRoute);
         for (int i = 1; i < coreRoute.vertexList.size(); i++) {
             String legStart = coreRoute.vertexList.get(i-1).vertexName;
             String legEnd = coreRoute.vertexList.get(i).vertexName;
             for (String loopMode : modes) {
-                WeightedGraph legRoute = new RouteRequest().getAPIWeightedGraph(legStart, legEnd, loopMode);
+                WeightedGraph legRoute = tempRequest.getAPIWeightedGraph(legStart, legEnd, loopMode);
                 legRoute = GeoModel.removeExtraVerticesFromRoute(legRoute);
                 this.routeList.add(legRoute);
                 this.overallGraph.addGraph(legRoute);
             }
             overallGraph = GeoModel.removeDuplicateVertices(overallGraph);
         }
+        //Todo - add getLegRoutes to createGeoModel method
         return overallGraph;
     }
     public static WeightedGraph removeExtraVerticesFromRoute(WeightedGraph route) {  // considering routes non-branching
