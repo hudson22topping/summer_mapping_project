@@ -118,19 +118,19 @@ public class WeightedGraph {
         }
         public static double estimateCost(Edge e){
             switch(e.mode){
-                case "WALKING":
-                case "BICYCLING":
+                case "walking":
+                case "bicycling":
                     return 0.00d;
-                case "DRIVING":
+                case "driving":
                     return (.90d * e.distance);
-                case "RIDESHARE":
+                case "rideshare":
                     return (10.0d + 1.60d * e.distance);
-                case "CARRENTAL":
+                case "carrental":
                     return (90.0d + .20 * e.distance);
-                case "SCOOTER":
+                case "scooter":
                     return 1.0d + .39d * e.duration;
-                case "TRANSIT":
-                case "BUS":
+                case "transit":
+                case "bus":
                     return 2.50d;
                 default:
                     return 0.00d;
@@ -139,23 +139,23 @@ public class WeightedGraph {
 
         static public int getMode (String mode) {
             switch(mode) {
-                case "WALKING":
+                case "walking":
                     return 0;
-                case "DRIVING":
+                case "driving":
                     return 1;
-                case "RIDESHARE":
+                case "rideshare":
                     return 2;
-                case "CARRENTAL":
+                case "carrental":
                     return 3;
-                case "BICYCLING":
+                case "bicycling":
                     return 4;
-                case "SCOOTER":
+                case "scooter":
                     return 5;
-                case "TRANSIT":
+                case "transit":
                     return 6;
-                case "BUS":
+                case "bus":
                     return 7;
-                case "AIRPLANE":
+                case "airplane":
                     return 8;
                 default:
                     return -1;
@@ -164,23 +164,23 @@ public class WeightedGraph {
         static public String getMode (int i){
             switch(i) {
                 case 0:
-                    return "WALKING";
+                    return "walking";
                 case 1:
-                    return "DRIVING";
+                    return "driving";
                 case 2:
-                    return "RIDESHARE";
+                    return "rideshare";
                 case 3:
-                    return "CARRENTAL";
+                    return "carrental";
                 case 4:
-                    return "BICYCLING";
+                    return "bicycling";
                 case 5:
-                    return "SCOOTER";
+                    return "scooter";
                 case 6:
-                    return "TRANSIT";
+                    return "transit";
                 case 7:
-                    return "BUS";
+                    return "bus";
                 case 8:
-                    return "AIRPLANE";
+                    return "airplane";
                 default:
                     return " ";
             }
