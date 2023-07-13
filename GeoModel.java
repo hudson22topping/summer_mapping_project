@@ -23,7 +23,7 @@ public class GeoModel {
     public WeightedGraph createGeoModel(String origin, String destination, List<String> modes) {
         RouteRequest tempRequest = new RouteRequest();
         WeightedGraph coreRoute = removeExtraVerticesFromRoute
-                (tempRequest.getAPIWeightedGraph(origin, destination, "TRANSIT"));
+                (tempRequest.getAPIWeightedGraph(origin, destination, "transit"));
         this.routeList.add(coreRoute);
         for (int i = 1; i < coreRoute.vertexList.size(); i++) {
             String legStart = coreRoute.vertexList.get(i-1).vertexName;

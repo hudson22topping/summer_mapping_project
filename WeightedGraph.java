@@ -194,8 +194,20 @@ public class WeightedGraph {
     }
 
     public Vertex addVertex(Vertex v) {
-        this.vertexList.addLast(v);
+        if(isUnique(v)) {
+            this.vertexList.addLast(v);
+        }
         return v;
+    }
+    public Boolean isUnique(Vertex v){
+        Boolean hasMatch = false;
+        for (Vertex mainVertex : this.vertexList) {
+            if (mainVertex.isMatch(v)) {
+                hasMatch = true;
+                break;
+            }
+        }
+        return !hasMatch;
     }
 
     public Edge addEdge(Edge e) {
@@ -213,12 +225,21 @@ public class WeightedGraph {
     {
         this.edgeList.addLast(new Edge(start, end, mode, duration, cost, distance));
 
+        if (isUnique(start)){
+            addVertex(start);
+        }
+        if (isUnique(end)){
+            addVertex(end);
+        }
+
         // make Vertex mode true at source and destination of the edge
-        int sIndex = getVertexIndex(start.vertexName);
+        // todo - alter vertex mode list when edge is added.  Resolve
+/*        int sIndex = getVertexIndex(start.vertexName);
         this.vertexList.get(sIndex).modes[Edge.getMode(mode)] = true;
         int dIndex = getVertexIndex(end.vertexName);
-        this.vertexList.get(dIndex).modes[Edge.getMode(mode)] = true;
+        this.vertexList.get(dIndex).modes[Edge.getMode(mode)] = true; */
         return this.edgeList.getLast();
+
         //
     }
     public void addGraph(WeightedGraph g) {
@@ -226,14 +247,7 @@ public class WeightedGraph {
         ListIterator<Vertex> vIterator = (ListIterator<Vertex>) g.vertexList.iterator();
         while (vIterator.hasNext()) {
             Vertex tempVer = vIterator.next();
-            Boolean isUnique = true;
-            for (Vertex mainVertex : this.vertexList) {
-                if (mainVertex.isMatch(tempVer)) {
-                    isUnique = false;
-                    continue;
-                }
-            }
-            if (isUnique) {
+            if (isUnique(tempVer)) {
                 this.addVertex(tempVer);
             }
         }
@@ -244,6 +258,8 @@ public class WeightedGraph {
             this.edgeList.addLast(eIterator.next());
         }
     }
+
+
 
     public int getVertexIndex(String s) {
         ListIterator<Vertex> vertexIterator = (ListIterator<Vertex>) vertexList.iterator();

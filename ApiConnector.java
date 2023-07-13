@@ -74,33 +74,30 @@ public class ApiConnector {
 
                     String startVertexName = step.getJSONObject("start_location").toString();
                     String endVertexName = step.getJSONObject("end_location").toString();
-
+//todo check json lan and long
+                    double sLongitude = step.getJSONObject("start_location").getDouble("lng");
+                    double sLatitude = step.getJSONObject("start_location").getDouble("lat");
+                    double eLongitude = step.getJSONObject("end_location").getDouble("lng");
+                    double eLatitude = step.getJSONObject("end_location").getDouble("lat");
+                    String mode = step.getString("travel_mode").toLowerCase();
+/*
                     // Add the start vertex if it doesn't exist
                     if (weightedGraph.getVertex(startVertexName) == null) {
-                        weightedGraph.addVertex(new WeightedGraph.Vertex(new Location(0.0, 0.0), startVertexName));
+                        weightedGraph.addVertex(new WeightedGraph.Vertex(new Location(sLatitude, sLongitude), startVertexName));
                     }
                     // Add the end vertex if it doesn't exist
                     if (weightedGraph.getVertex(endVertexName) == null) {
-                        weightedGraph.addVertex(new WeightedGraph.Vertex(new Location(0.0, 0.0), endVertexName));
-                    }
+                        weightedGraph.addVertex(new WeightedGraph.Vertex(new Location(eLatitude, eLongitude), endVertexName));
+                    } */
 
                     // Get the existing start and end vertices
-                    WeightedGraph.Vertex source = weightedGraph.getVertex(startVertexName);
-                    WeightedGraph.Vertex destination = weightedGraph.getVertex(endVertexName);
+                    WeightedGraph.Vertex source = new WeightedGraph.Vertex(new Location(sLatitude, sLongitude), startVertexName);
+                    WeightedGraph.Vertex destination = new WeightedGraph.Vertex(new Location(eLatitude, eLongitude), endVertexName);
 
-                    // Check if vertices are found
-                    if (source != null && destination != null) {
-                        String mode = "WALKING"; // Assuming all steps are for walking mode
-                        weightedGraph.addEdge(source, destination, mode, duration, 0.0, distance);
-                    } else {
-                        // Handle case when source or destination vertex is not found
-                        System.out.println("Source or destination vertex not found: " + startVertexName + ", " + endVertexName);
-                    }
+                    weightedGraph.addEdge(source, destination, mode, duration, 0.0, distance);
                 }
             }
         }
-
-        return weightedGraph;
+            return weightedGraph;
     }
-
 }

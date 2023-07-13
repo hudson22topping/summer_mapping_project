@@ -62,7 +62,7 @@ public class UserAccount {
     public void setBusPref(int p) {
         this.modePref[7] = p;
     }
-    public int getFlightPref() {this.modePref[8];}
+    public int getFlightPref() {return modePref[8];}
     public void setFlightPref(int p) {this.modePref[8] = p;}
     public void initializeTransitUser(){
         setBikePref(0);
