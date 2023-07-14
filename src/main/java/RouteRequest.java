@@ -1,5 +1,8 @@
 package main.java;
 
+import java.io.IOException;
+import java.util.LinkedList;
+
 public class RouteRequest {
     // preference is 0-4 as:
     // 0 means can't - imperative not to use this mode
@@ -13,8 +16,16 @@ public class RouteRequest {
     String priority;  //QUICK, CHEAP, FREE, COMFORTABLE, PERSONALIZED, EASY, EXERCISE
     public RouteRequest() {
     }
-    public void setPriority(String p){
-        this.priority = p;
+    public void setPriority(String p) {
+        this.priority = validatePriority(p);
+    }
+    public static String validatePriority (String p) {
+        if (p == "QUICK" || p == "CHEAP" || p == "FREE" || p == "COMFORTABLE" || p == "PERSONALIZED" || p == "EASY" || p == "EXERCISE") {
+            return p;
+        } else {
+            System.out.println("Priority not set");
+            return " ";
+        }
     }
     public String getPriority(){
         return this.priority;
@@ -67,6 +78,16 @@ public class RouteRequest {
     public void setBusPref(int p) {
         this.modePref[7] = p;
     }
+    public LinkedList<String> getModePrefAsList(){
+
+        LinkedList<String> preferredModes = new LinkedList<>();
+        for (int i = 0; i < modePref.length; i++){
+            if (modePref[i] != 0){
+                preferredModes.addLast(WeightedGraph.Edge.getMode(i));
+            }
+        }
+        return preferredModes;
+    }
     public String getOrigin(){
         return this.origin;
     }
@@ -79,15 +100,43 @@ public class RouteRequest {
     public void setDestination(String d){
         this.destination = d;
     }
-    public void generateTransitRequest() {
-        setOrigin("Dunwoody Marta Station");
+
+
+    public void generateTransitRequestTest2() {
+        UserAccount userT = new UserAccount("Thomas");
+        userT.initializeTransitUser();
+        setOrigin("Macys Perimeter Mall Dunwoody");
         setDestination("Piedmont Atlanta Hospital");
         setBikePref(1);  setBusPref(2);  setDrivePref(0);  setTransitPref(3);  setScooterPref(1);
-        setCarRentalPref(0);  setRidesharePref(0); setWalkPref(2);
+        setCarRentalPref(0);  setRidesharePref(0); setWalkPref(1);
         setPriority("CHEAP");
     }
-
-    public WeightedGraph getAPIWeightedGraph (Location origin, Location destination, String mode) {
-        return new WeightedGraph();
+    public void setEndsDunwoodyToAmtrak(){
+        setOrigin("Memphis BBQ Co., Dunwoody");
+        setDestination("Amtrak Atlanta");
     }
+    public void setEndsKennesawToHartsfield() {
+        setOrigin("Marietta Square Marietta, GA");
+        setDestination("Hartsfield International Airport");
+    }
+    public void setEndsGaTechToDiscoKroger() {
+        setOrigin("Walmart Supercenter, 1871 Chamblee Tucker Rd, Chamblee, GA 30341");
+        setDestination("Burlington, 5766 Buford Hwy, Doraville, GA 30340");
+    }
+
+    public WeightedGraph getAPIWeightedGraph (String origin, String destination, String mode) {
+        // todo - complete getAPIWeightedGraph() method
+        // create connector
+        ApiConnector googleConnector = new ApiConnector(origin, destination, mode);
+        String jsonOutput = googleConnector.saveJsonToString();
+        WeightedGraph weightedGraph;
+        weightedGraph = googleConnector.constructWeightedGraph(jsonOutput);
+        return weightedGraph;
+    }
+
+    public void setModePrefFromAccount(UserAccount uAcct) {
+        this.modePref = uAcct.modePref;
+    }
+
+
 }

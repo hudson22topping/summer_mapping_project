@@ -1,3 +1,5 @@
+package main.java;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -5,11 +7,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
 public class JsonToWeightedGraph {
     public static void main(String[] args) {
         // Specify the path to the walking directions JSON file
-        String walkingDirectionsFilePath = "src/main/java/walking_directions.json";//C:\Users\rober\IdeaProjects\summer_mapping\walking_directions.json
+        String walkingDirectionsFilePath = "src/main/data/walking_directions.json";
 
         try {
             // Read the JSON file content
@@ -55,11 +56,11 @@ public class JsonToWeightedGraph {
 
                     // Add the start vertex if it doesn't exist
                     if (weightedGraph.getVertex(startVertexName) == null) {
-                        weightedGraph.addVertex(new WeightedGraph.Vertex(new WeightedGraph.Location(0.0, 0.0), startVertexName));
+                        weightedGraph.addVertex(new WeightedGraph.Vertex(new Location(0.0, 0.0), startVertexName));
                     }
                     // Add the end vertex if it doesn't exist
                     if (weightedGraph.getVertex(endVertexName) == null) {
-                        weightedGraph.addVertex(new WeightedGraph.Vertex(new WeightedGraph.Location(0.0, 0.0), endVertexName));
+                        weightedGraph.addVertex(new WeightedGraph.Vertex(new Location(0.0, 0.0), endVertexName));
                     }
 
                     // Get the existing start and end vertices
@@ -80,6 +81,4 @@ public class JsonToWeightedGraph {
 
         return weightedGraph;
     }
-
-
 }

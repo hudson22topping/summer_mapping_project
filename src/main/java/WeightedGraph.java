@@ -1,148 +1,173 @@
-//ackage main.java;
+package main.java;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.ListIterator;
+import java.util.*;
+
 
 public class WeightedGraph {
     LinkedList<Vertex> vertexList;
     LinkedList<Edge> edgeList;
 
+    public Edge getEdge(Vertex start, Vertex end) {
+        for (Edge edge : edgeList) {
+            if (edge.getStart().equals(start) && edge.getEnd().equals(end)) {
+                return edge;
+            }
+        }
+        return null; // Edge not found
+    }
+
+    public void removeLastEdge() {
+        edgeList.removeLast();
+    }
+
+    public void removeLastVertex() {
+        vertexList.removeLast();
+    }
+
+
+
     static class Vertex {
-        //Todo
         Location location;
         String vertexName;
-        //0-walk, 1-drive, 2-rideshare, 3-carRental, 4-bicycle, 5-scooter, 6-transit, 7-bus, 8-airplane, 9-unused
+        // 0-walk, 1-drive, 2-rideshare, 3-carRental, 4-bicycle, 5-scooter, 6-transit, 7-bus, 8-airplane, 9-unused
         /*
-         * Walking is allowed in most places with stops.  It is not allowed on the Interstate
+         * Walking is allowed in most places with stops. It is not allowed on the Interstate
          * Changing modes to/from driving requires a parking lot, and the cost of parking should be added to the final driven leg
-         * Rideshare is allows almost anywhere.  In some places like the airport there are specific pickup areas.
+         * Rideshare is allowed almost anywhere. In some places like the airport, there are specific pickup areas.
          * Car Rental locations - where you can rent a car, for instance, the airport car rental lots
          * Bicycle is allowed in most places with stops, but changing to/from bike means bike rental or locking rack.
          * Biking is not allowed on the Interstate
          * Scooter Rental Locations - where you can rent a scooter.
-         * */
+         */
 
         private boolean[] modes = {false, false, false, false, false, false, false, false, false, false};
+        private double tentativeDistance;
+
         public Vertex(Location location, String uniqueNameId) {
             this.location = location;
             this.vertexName = uniqueNameId;
+            this.tentativeDistance = Double.POSITIVE_INFINITY;
         }
-        static public int getModeIndex (String mode) {
-            switch(mode) {
-                case "WALKING":
-                    return 0;
-                case "DRIVING":
-                    return 1;
-                case "RIDESHARE":
-                    return 2;
-                case "CARRENTAL":
-                    return 3;
-                case "BICYCLING":
-                    return 4;
-                case "SCOOTER":
-                    return 5;
-                case "TRANSIT":
-                    return 6;
-                case "BUS":
-                    return 7;
-                case "AIRPLANE":
-                    return 8;
-                default:
-                    return -1;
-            }
+
+        public Double getLongitude() {
+            return this.location.getLongitude();
         }
-        static public String getModeName (int i){
-            switch(i) {
-                case 0:
-                    return "WALKING";
-                case 1:
-                    return "DRIVING";
-                case 2:
-                    return "RIDESHARE";
-                case 3:
-                    return "CARRENTAL";
-                case 4:
-                    return "BICYCLING";
-                case 5:
-                    return "SCOOTER";
-                case 6:
-                    return "TRANSIT";
-                case 7:
-                    return "BUS";
-                case 8:
-                    return "AIRPLANE";
-                default:
-                    return " ";
-            }
+
+        public Double getLatitude() {
+            return this.location.getLatitude();
         }
 
         public void autoVertexName() {
             // Get Location Name from GoogleLocation API
-            //ToDo
+            // ToDo
         }
-        public void setWalk(boolean tf){
+
+        public void setWalk(boolean tf) {
             modes[0] = tf;
         }
-        public void setCarPark(boolean tf){
+
+        public void setCarPark(boolean tf) {
             modes[1] = tf;
         }
-        public void setRideShare(boolean tf){
+
+        public void setRideShare(boolean tf) {
             modes[2] = tf;
         }
-        public void setCarRental(boolean tf){
+
+        public void setCarRental(boolean tf) {
             modes[3] = tf;
         }
-        public void setBikeRack(boolean tf){
+
+        public void setBikeRack(boolean tf) {
             modes[4] = tf;
         }
-        public void setScooterRental(boolean tf){
+
+        public void setScooterRental(boolean tf) {
             modes[5] = tf;
         }
-        public void setTransit(boolean tf){
+
+        public void setTransit(boolean tf) {
             modes[6] = tf;
         }
-        public void setBusStop(boolean tf){
+
+        public void setBusStop(boolean tf) {
             modes[7] = tf;
         }
-        public boolean getWalk(){
+
+        public boolean getWalk() {
             return modes[0];
         }
-        public boolean getCarPark(){
+
+        public boolean getCarPark() {
             return modes[1];
         }
-        public boolean getRideShare(){
+
+        public boolean getRideShare() {
             return modes[2];
         }
-        public boolean getCarRental(){
+
+        public boolean getCarRental() {
             return modes[3];
         }
-        public boolean getBikeRack(){
+
+        public boolean getBikeRack() {
             return modes[4];
         }
-        public boolean getScooterRental(){
+
+        public boolean getScooterRental() {
             return modes[5];
         }
-        public boolean getTransit(){
+
+        public boolean getTransit() {
             return modes[6];
         }
-        public boolean getBusStop(){
+
+        public boolean getBusStop() {
             return modes[7];
         }
 
+        public double getTentativeDistance() {
+            return tentativeDistance;
+        }
+
+        public void setTentativeDistance(double tentativeDistance) {
+            this.tentativeDistance = tentativeDistance;
+        }
+
+        public List<Edge> getOutgoingEdges(List<Edge> edgeList) {
+            List<Edge> outgoingEdges = new ArrayList<>();
+            for (Edge edge : edgeList) {
+                if (edge.start.equals(this)) {
+                    outgoingEdges.add(edge);
+                }
+            }
+            return outgoingEdges;
+        }
+
+
+
+        public boolean isMatch(Vertex tempVer) {
+            // match rounded to 4 decimal places - about 10 meters, so 20-meter square box around location
+            if (this.location.isMatch(tempVer.location)) {
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
+        }
     }
 
+
+
     static class Edge {
-        Vertex source;
-        Vertex destination;
+        Vertex start;
+        Vertex end;
         String mode;
         Integer duration;
         Double cost;
         Integer distance;
 
-        public Edge(Vertex source, Vertex destination, String mode, Integer duration, Double cost, Integer distance) {
-            this.source = source;
-            this.destination = destination;
+        public Edge(Vertex start, Vertex end, String mode, Integer duration, Double cost, Integer distance) {
+            this.start = start;
+            this.end = end;
             this.mode = mode;
             this.duration = duration;
             this.distance = distance;
@@ -151,25 +176,115 @@ public class WeightedGraph {
                 this.cost = estimateCost(this);
             }
         }
+        public Vertex getStart() {
+            return start;
+        }
+
+        public String getMode() {
+            return mode;
+        }
+
+        public double getCost() {
+            return cost;
+        }
+        public Integer getDuration() {
+            return duration;
+        }
         public static double estimateCost(Edge e){
             switch(e.mode){
-                case "WALKING":
-                case "BICYCLING":
+                case "walking":
+                case "bicycling":
                     return 0.00d;
-                case "DRIVING":
+                case "driving":
                     return (.90d * e.distance);
-                case "RIDESHARE":
+                case "rideshare":
                     return (10.0d + 1.60d * e.distance);
-                case "CARRENTAL":
+                case "carrental":
                     return (90.0d + .20 * e.distance);
-                case "SCOOTER":
+                case "scooter":
                     return 1.0d + .39d * e.duration;
-                case "TRANSIT":
-                case "BUS":
+                case "transit":
+                case "bus":
                     return 2.50d;
                 default:
                     return 0.00d;
             }
+        }
+
+        static public int getMode (String mode) {
+            switch(mode) {
+                case "walking":
+                    return 0;
+                case "driving":
+                    return 1;
+                case "rideshare":
+                    return 2;
+                case "carrental":
+                    return 3;
+                case "bicycling":
+                    return 4;
+                case "scooter":
+                    return 5;
+                case "transit":
+                    return 6;
+                case "bus":
+                    return 7;
+                case "airplane":
+                    return 8;
+                default:
+                    return -1;
+            }
+        }
+        static public String getMode (int i){
+            switch(i) {
+                case 0:
+                    return "walking";
+                case 1:
+                    return "driving";
+                case 2:
+                    return "rideshare";
+                case 3:
+                    return "carrental";
+                case 4:
+                    return "bicycling";
+                case 5:
+                    return "scooter";
+                case 6:
+                    return "transit";
+                case 7:
+                    return "bus";
+                case 8:
+                    return "airplane";
+                default:
+                    return " ";
+            }
+        }
+        public Vertex getEnd() {
+            return end;
+        }
+    }
+
+    static class Path {
+        List<Edge> edges;
+        Double totalCost;
+        Integer totalDuration;
+
+        public Path(List<Edge> edges, Double totalCost, Integer totalDuration) {
+            this.edges = edges;
+            this.totalCost = totalCost;
+            this.totalDuration = totalDuration;
+        }
+
+        public List<Edge> getEdges() {
+            return edges;
+        }
+
+        public Double getTotalCost() {
+            return totalCost;
+        }
+
+        public Integer getTotalDuration() {
+            return totalDuration;
         }
     }
 
@@ -180,42 +295,77 @@ public class WeightedGraph {
     }
 
     public Vertex addVertex(Vertex v) {
-        this.vertexList.addLast(v);
+        if(isUnique(v)) {
+            this.vertexList.addLast(v);
+        }
         return v;
     }
+    public Boolean isUnique(Vertex v){
+        Boolean hasMatch = false;
+        for (Vertex mainVertex : this.vertexList) {
+            if (mainVertex.isMatch(v)) {
+                hasMatch = true;
+                break;
+            }
+        }
+        return !hasMatch;
+    }
+    public int findMatch(Vertex tempVer) {
+        int index = 0;
+        for (Vertex mainVertex : this.vertexList) {
+            if (mainVertex.isMatch(tempVer)) {
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
 
-    public Edge addEdge(Edge e) {
+    public void addEdge(Edge e) {
         this.edgeList.addLast(e);
 
         // make Vertex mode true at source and destination of the edge
-        int sIndex = getVertexIndex(e.source.vertexName);
-        this.vertexList.get(sIndex).modes[Vertex.getModeIndex(e.mode)] = true;
-        int dIndex = getVertexIndex(e.destination.vertexName);
-        this.vertexList.get(dIndex).modes[Vertex.getModeIndex(e.mode)] = true;
-        return this.edgeList.getLast();
+//        int sIndex = getVertexIndex(e.start.vertexName);
+//        this.vertexList.get(sIndex).modes[Edge.getMode(e.mode)] = true;
+//        int dIndex = getVertexIndex(e.end.vertexName);
+//        this.vertexList.get(dIndex).modes[Edge.getMode(e.mode)] = true;
+//        return this.edgeList.getLast();
+
     }
 
-    public Edge addEdge(Vertex source, Vertex destination, String mode, Integer duration, Double cost, Integer distance) {
-        int sIndex = getVertexIndex(source.vertexName);
-        int dIndex = getVertexIndex(destination.vertexName);
+    public Edge addEdge(Vertex start, Vertex end, String mode, Integer duration, Double cost, Integer distance)
+    {
 
-        if (sIndex != -1 && dIndex != -1) {
-            this.edgeList.addLast(new Edge(source, destination, mode, duration, cost, distance));
-
-            // make Vertex mode true at source and destination of the edge
-            this.vertexList.get(sIndex).modes[Vertex.getModeIndex(mode)] = true;
-            this.vertexList.get(dIndex).modes[Vertex.getModeIndex(mode)] = true;
-
-            return this.edgeList.getLast();
+        if (isUnique(start)){
+            addVertex(start);
         } else {
-            throw new IllegalArgumentException("Source or destination vertex not found.");
+            start = this.vertexList.get(findMatch(start));
         }
+        if (isUnique(end)){
+            addVertex(end);
+        } else {
+            end = this.vertexList.get(findMatch(end));
+        }
+        this.edgeList.addLast(new Edge(start, end, mode, duration, cost, distance));
+
+        // make Vertex mode true at source and destination of the edge
+        // todo - alter vertex mode list when edge is added.  Resolve
+/*        int sIndex = getVertexIndex(start.vertexName);
+        this.vertexList.get(sIndex).modes[Edge.getMode(mode)] = true;
+        int dIndex = getVertexIndex(end.vertexName);
+        this.vertexList.get(dIndex).modes[Edge.getMode(mode)] = true; */
+        return this.edgeList.getLast();
+
+        //
     }
     public void addGraph(WeightedGraph g) {
         // iterate over vertices of argument g
         ListIterator<Vertex> vIterator = (ListIterator<Vertex>) g.vertexList.iterator();
         while (vIterator.hasNext()) {
-            this.vertexList.addLast(vIterator.next());
+            Vertex tempVer = vIterator.next();
+            if (isUnique(tempVer)) {
+                this.addVertex(tempVer);
+            }
         }
 
         // iterate over edges of argument g
@@ -225,25 +375,32 @@ public class WeightedGraph {
         }
     }
 
+    public int getVertexIndex(Vertex v) {
+        ListIterator<Vertex> vertexIterator = (ListIterator<Vertex>) vertexList.iterator();
+        while (vertexIterator.hasNext()) {
+            if (vertexIterator.next() == v) {
+                return vertexIterator.previousIndex() + 1;
+            } //TODO Figure out what this means, maybe at an iterator ++
+        }   //vertexIterator++;
+        return -1; // return -1 if not found
+    }
+
     public int getVertexIndex(String s) {
         ListIterator<Vertex> vertexIterator = (ListIterator<Vertex>) vertexList.iterator();
         while (vertexIterator.hasNext()) {
             if (vertexIterator.next().vertexName.contains(s)) {
                 return vertexIterator.previousIndex();
-            }
-        }
+            } //TODO Figure out what this means, maybe at an iterator ++
+        }   //vertexIterator++;
         return -1; // return -1 if not found
     }
 
     public Vertex getVertex(String s) {
         int vIndex = getVertexIndex(s);
-        if (vIndex != -1) {
+        if (vIndex >= 0) {
             return this.vertexList.get(vIndex);
-        } else {
-            return null; // Return null if vertex not found
-        }
+        } else {return null;}
     }
-
 
     public void printGraph(){
         Iterator<Vertex> vertexIterator = vertexList.iterator();
@@ -255,7 +412,7 @@ public class WeightedGraph {
         Iterator<Edge> edgeIterator = edgeList.iterator();
         while (edgeIterator.hasNext()) {
             Edge tempEdge = edgeIterator.next();
-            System.out.println("\n\nFrom: " + tempEdge.source.vertexName + "\nTo " + tempEdge.destination.vertexName +
+            System.out.println("\n\nFrom: " + tempEdge.start.vertexName + "\nTo " + tempEdge.end.vertexName +
                     "\nMode: " + tempEdge.mode + "\nDistance: " + tempEdge.distance +
                     "\nDuration: " + tempEdge.duration +
                     "\nCost: " + tempEdge.cost);
@@ -320,7 +477,73 @@ public class WeightedGraph {
         Edge e4 = graph.addEdge(v4, v5, "TRANSIT", 699, 0.00, 3083);
         Edge e5 = graph.addEdge(v5, v6, "WALKING", 103, 0.00, 121);
     }
+    public void loadTestGraphDunMacysToPiedmont2(){
 
+        // add vertices
+        Vertex v1 = this.addVertex(new Vertex(new Location(33.9228732,-84.3418493), "Macys - Perimeter Mall"));
+        Vertex v2 = this.addVertex(new Vertex(new Location(33.921227,-84.344398), "Rail stop - Dunwoody Marta Station"));
+        Vertex v3 = this.addVertex(new Vertex(new Location(33.789112,-84.387383), "Rail stop - Arts Center Marta Station"));
+        Vertex v4 = this.addVertex(new Vertex(new Location(33.7892632,-84.3873414), "Bus stop - Arts Center Marta Station"));
+        Vertex v5 = this.addVertex(new Vertex(new Location(33.8082253,-84.3934548), "Bus stop - Peachtree Rd at Collier Rd"));
+        Vertex v6 = this.addVertex(new Vertex(new Location(33.8085817,-84.3943387), "Piedmont Hospital - Peachtree Rd"));
+
+
+        // add edges
+        // for testing clarity, making each vertex a separate variable
+
+        Edge e1 = this.addEdge(v1, v2, "WALKING", 271, 0.00, 347);
+        Edge e2 = this.addEdge(v2, v3, "TRANSIT", 900, 0.00, 17083);
+        Edge e3 = this.addEdge(v3, v4, "WALKING", 18, 0.00, 17);
+        Edge e4 = this.addEdge(v4, v5, "WALKING", 699, 0.00, 3083);
+        Edge e5 = this.addEdge(v5, v6, "TRANSIT", 103, 0.00, 121);
+    }
+
+    public List<WeightedGraph> getMultiModalBestPath(Vertex startVertex, Vertex endVertex, List<String> availableModes) {
+        //Vertex startVertex = getVertex(startVertexName);
+        //Vertex endVertex = getVertex(endVertexName);
+
+        Set<Vertex> visited = new HashSet<>();
+        List<WeightedGraph> bestPaths = null;
+
+        findMultiModalPaths(startVertex, endVertex, availableModes, new WeightedGraph(), visited, bestPaths);
+
+        return bestPaths;
+    }
+    public WeightedGraph(WeightedGraph graph) {
+        this.vertexList = new LinkedList<>(graph.vertexList);
+        this.edgeList = new LinkedList<>(graph.edgeList);
+    }
+
+    public List<Edge> getOutgoingEdges(WeightedGraph weightedGraph) {
+        List<Edge> outgoingEdges = new ArrayList<>();
+        for (Edge edge : weightedGraph.edgeList) {
+            if (edge.start.equals(this)) {
+                outgoingEdges.add(edge);
+            }
+        }
+        return outgoingEdges;
+    }
+
+
+    public void findMultiModalPaths(Vertex currentVertex, Vertex endVertex, List<String> availableModes, WeightedGraph currentPath, Set<Vertex> visited, List<WeightedGraph> bestPaths) {
+        visited.add(currentVertex);
+        currentPath.addVertex(currentVertex);
+
+        if (currentVertex.equals(endVertex)) {
+            bestPaths.add(currentPath);
+        } else {
+            for (Edge edge : currentVertex.getOutgoingEdges(this.edgeList)) {
+                Vertex neighbor = edge.getEnd();
+                if (!visited.contains(neighbor) && availableModes.contains(edge.getMode())) {
+                    currentPath.addEdge(edge);
+                    findMultiModalPaths(neighbor, endVertex, availableModes, currentPath, visited, bestPaths);
+                    currentPath.removeLastEdge();
+                }
+            }
+        }
+        visited.remove(currentVertex);
+        currentPath.removeLastVertex();
+    }
 
     public static void main(String[] args) {
 
@@ -329,27 +552,5 @@ public class WeightedGraph {
         // graph.loadTestGraph1(graph);
         graph.loadTestGraphDunMacysToPiedmont(graph);
         graph.printGraph();
-    }
-
-    static class Location {
-        double longitude;
-        double latitude;
-
-
-        public Location(double la, double lo) {
-            this.longitude = lo;
-            this.latitude = la;
-        }
-
-
-        public double getLongitude() {
-            return longitude;
-        }
-
-        public double getLatitude() {
-            return latitude;
-        }
-
-
     }
 }
