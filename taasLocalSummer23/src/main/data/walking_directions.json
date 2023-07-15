@@ -1,0 +1,517 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJJ1oXZ34E9YgRGnjO58ftRQQ",
+         "types" : [ "premise" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJT3oQxdQT9YgRSCFKlX0fMDo",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 33.9438177,
+               "lng" : -84.3789888
+            },
+            "southwest" : {
+               "lat" : 33.7624085,
+               "lng" : -84.48291639999999
+            }
+         },
+         "copyrights" : "Map data \u00a92023 Google",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "17.6 mi",
+                  "value" : 28301
+               },
+               "duration" : {
+                  "text" : "6 hours 2 mins",
+                  "value" : 21719
+               },
+               "end_address" : "2450 Lower Roswell Rd, Marietta, GA 30068, USA",
+               "end_location" : {
+                  "lat" : 33.9438177,
+                  "lng" : -84.4814944
+               },
+               "start_address" : "121 Baker St NW, Atlanta, GA 30313, USA",
+               "start_location" : {
+                  "lat" : 33.7624085,
+                  "lng" : -84.3922618
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "69 ft",
+                        "value" : 21
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 13
+                     },
+                     "end_location" : {
+                        "lat" : 33.7624108,
+                        "lng" : -84.3921402
+                     },
+                     "html_instructions" : "Head \u003cb\u003eeast\u003c/b\u003e on \u003cb\u003eBaker St NW\u003c/b\u003e toward \u003cb\u003eCentennial Olympic Park Dr NW\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "afamErzabO?W"
+                     },
+                     "start_location" : {
+                        "lat" : 33.7624085,
+                        "lng" : -84.3922618
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.2 mi",
+                        "value" : 256
+                     },
+                     "duration" : {
+                        "text" : "3 mins",
+                        "value" : 167
+                     },
+                     "end_location" : {
+                        "lat" : 33.7645243,
+                        "lng" : -84.39204310000001
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eCentennial Olympic Park Dr NW\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "afamEzyabOK?c@?gAAa@?U@UAQAu@A]Ee@?IAQ?q@CEA"
+                     },
+                     "start_location" : {
+                        "lat" : 33.7624108,
+                        "lng" : -84.3921402
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "220 ft",
+                        "value" : 67
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 64
+                     },
+                     "end_location" : {
+                        "lat" : 33.7644045,
+                        "lng" : -84.39160230000002
+                     },
+                     "html_instructions" : "Sharp \u003cb\u003eright\u003c/b\u003e at \u003cb\u003eIvan Allen Jr Blvd NW\u003c/b\u003e",
+                     "maneuver" : "turn-sharp-right",
+                     "polyline" : {
+                        "points" : "gsamEfyabOAYH@A@GDAU@AFCDA@A@A@A@C@C?A@C?E?C?E?E"
+                     },
+                     "start_location" : {
+                        "lat" : 33.7645243,
+                        "lng" : -84.39204310000001
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "2.3 mi",
+                        "value" : 3676
+                     },
+                     "duration" : {
+                        "text" : "48 mins",
+                        "value" : 2888
+                     },
+                     "end_location" : {
+                        "lat" : 33.7968009,
+                        "lng" : -84.38912549999999
+                     },
+                     "html_instructions" : "Continue onto \u003cb\u003eSpring St NW\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "oramEnvabOWWq@u@Y]m@s@MU[]Y[[]Y]k@o@QSSUSSKKi@a@EAECIEGEEA[KGCKCQEMCIAE?OCq@AO?[?i@?A?g@AQ?QAy@@gAA{@AC?CBCDOG@A@C@?WACa@a@??Ac@AQ?E?O?w@ASCkAAC?_@?C?Q??@e@@E??D[?A?u@A_@A[?[?S?K??AC?OAE??B_@@]?]CK?U?I?[Bu@A]?U??EOAE??FKAc@?O?e@?c@Ae@?Q?I?S??EU??@SCk@AS?W?SB?EE?M@C@?AYAI?Q?K?o@?U?E?U@?BYGCA?Fg@?IAy@?Q??CQEEA?HM?G?SBY?AE?CMFo@?QAo@AY?Q?S?G?S@G?Q@I?G@G?YB?EA?ODC@?BYGeBPSBYLE?[?@@QBU@OBODG?M@U@SFK@?CC?g@FC??DE?g@BE?M?E?W@K?e@?Y?U?o@A[@sA?]?]C]?[?qA?OE@Fk@@y@?]@I?iB@?EC?Q??@uB?W@C?g@??@C?[G[@_@?Q?gA@[Hi@?_A@K?S?W?M?U?S?Q@qB@_A@?CA?S@W?C?o@?C?a@AS@KCo@AE?E?MCI?C?k@C}@C?@{@G?DM?GAA?SCQ?YAa@AQ@IAO?K?c@Am@A?@O??AaAAgAAiCEQ?q@AYA[@g@?OCUAC?H`@Q?U?U@WE[HOEqAAE?"
+                     },
+                     "start_location" : {
+                        "lat" : 33.7644045,
+                        "lng" : -84.39160230000002
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "200 ft",
+                        "value" : 61
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 45
+                     },
+                     "end_location" : {
+                        "lat" : 33.7972011,
+                        "lng" : -84.38920000000002
+                     },
+                     "html_instructions" : "Keep \u003cb\u003eleft\u003c/b\u003e to stay on \u003cb\u003eSpring St NW\u003c/b\u003e",
+                     "maneuver" : "keep-left",
+                     "polyline" : {
+                        "points" : "_}gmE`gabOIAE?EAC?C@C@UBWH"
+                     },
+                     "start_location" : {
+                        "lat" : 33.7968009,
+                        "lng" : -84.38912549999999
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "3.2 mi",
+                        "value" : 5198
+                     },
+                     "duration" : {
+                        "text" : "1 hour 7 mins",
+                        "value" : 4013
+                     },
+                     "end_location" : {
+                        "lat" : 33.8393159,
+                        "lng" : -84.37977189999999
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003ePeachtree St NE\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003ePass by Starbucks (on the right in 0.7 mi)\u003c/div\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "o_hmEngabOEPIXIVK`@EJEHCFABABGLCDQZOVINQZMPKROTMTGL[d@?AEJ@@W^_@h@OPY\\IJEBA@IHOLc@Zo@^QJWN@?SNEBCCAAOF]Li@Lk@H_@FKB]@O@A?SBk@BA?S?I??@U??@y@@]EQ?IBS@E?SDE?GBG@G@O@?@C?OBC@@BoAR[@[HQFMDQDE@m@Po@NKDUFMD[HUDKBWF@BQH?CeAXc@JQBOB?@S@E@?DI?G@q@DO?I?M?]Kq@EGAa@AC??CKA_@CM?GAc@EMAUAk@IQAe@Kc@Eg@O]K_@Kc@OOE]KYKYIICA?c@Oq@U]K?@AAKC?AEACAgA_@WIUGGAYIQG[IQGWGGCSEGAQAEA_@Cg@AM@M?@BG@K@?AGBIBWN{@ZG@E?I@O@]AE?]I]KSIWG?BYO?Ea@M]ESIg@OEAUKYKME?@KK?CSK[OWOUQCCGGEEMMMOY[UUEG?GKOW]_@g@QUA@ACMKGGSQOO_@]KGMMOMIGu@m@OKIGYSi@Yg@[UGECKGC?WGy@OYAaASUGCASEUC_@GIC@?k@I?Am@MOCQESEYGSCICKACAWIICKCC?SEICKCKCECYCC?MCKGYG_AUKCOCGAEASGMEGCWAc@KQEWGQEKA?ADe@?EYCW?[AG?O?WDK?y@?[Co@?Y?[A[@aA?C?QAC??@g@?M@]AY?Q?i@?Y?u@@OAK?O?GAG?S@O?I?c@?M?a@?UAI?S??Bk@AY?gA?s@?AEUB@?yA?G?m@AIG_@Qc@c@iAiAOSa@a@OMCCGIc@e@KICEGEAC}A}A?A_@_@?@c@a@S_@]]KKEGQOEGIIYYMEOQIKWSCCY_@]_@GIECACCC?@CCMQa@c@QOUY?ACCOQAA?BSSg@Yg@Wg@UOIGCUMKEYMGCCCMKc@SEAMG]?IGEMKC_@EKGC?GCOK]OUCGCOGOGGCUIECGAQIQIaA_@?@a@O?Aa@OSGGCUEKEWMe@OUMGA@CSIA?KKCCMIIGSOQQWQOMWOOKi@c@UW"
+                     },
+                     "start_location" : {
+                        "lat" : 33.7972011,
+                        "lng" : -84.38920000000002
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.2 mi",
+                        "value" : 1964
+                     },
+                     "duration" : {
+                        "text" : "25 mins",
+                        "value" : 1520
+                     },
+                     "end_location" : {
+                        "lat" : 33.8560503,
+                        "lng" : -84.3827659
+                     },
+                     "html_instructions" : "Slight \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eRoswell Rd\u003c/b\u003e",
+                     "maneuver" : "turn-slight-left",
+                     "polyline" : {
+                        "points" : "wfpmEpl_bOI`A?FCEAFAASYAA@G_@OQG_Bk@WGYKEAOEUIUKg@MUOIA?JWM?@KE[IQEICSGQEC?YC_@?S?O@M@O@E@OBM@c@JKBKAC@WJe@J]DSD?Fw@RB@m@TWLQLKHKHOLWT_AbAQTONMLML]\\QRQPGDONYJMHc@`@_@VC@QN]TUPMLo@\\GDUTWNSHIDG@UFG@[He@L[HQDUD[FOBI@SBQF{@JO@GBiALQ@gANODK@c@FS@QBG@KA[BY@O?MBG?WBC?MAYGC?u@EGAOAOASCIAOAOAWEOAeAKQCa@EQEw@I?HQA?EMAIAK?O?U@O?YBK?_@Co@@A@[?ME@DG??AG?K?e@BKBW?SAI@KA[?]Ei@AAB[CBEHQWL@FKAC?"
+                     },
+                     "start_location" : {
+                        "lat" : 33.8393159,
+                        "lng" : -84.37977189999999
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "4.3 mi",
+                        "value" : 6946
+                     },
+                     "duration" : {
+                        "text" : "1 hour 29 mins",
+                        "value" : 5340
+                     },
+                     "end_location" : {
+                        "lat" : 33.9045014,
+                        "lng" : -84.4174151
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003ePowers Ferry Rd NE\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "iosmEh_`bO@DBTIJMNKNE@o@t@AJKD_@b@OPCD{@dAIJWXQTOREFILCBEHAVIPGLCFGJIRMTSJWl@Sb@MXMPEHGHEFGFGFKHa@^q@j@?A?GKB?D?BOC?DANH@CBIF[X?@qAfAIJs@l@[X[Z[Xc@b@OHEDONMJOJs@l@[XoAhAMPCBMLSRGFQPSVMJSTGHm@n@KNMNEDC@MNCBGHEBCBKHEDEBWTMHMFGDMFKFKDKFQJIBKFUJ_@NIDE@C@G@IDKAiBj@MDE@c@LC@]J[JSFODKF_Cv@OBo@TGBMH}@XKD}@Zy@XmA^WHg@Pu@TsAb@wC|@cAZi@PMDKB}@XMDc@NYJGBIBSJIDKJURQNGHGHOPc@j@QPKNSVIJUXW\\ILIJIFGHGHEFIJA@GHCESTBBiA~AMNk@v@SZSVEDMTCB?@ORQPA@KJEB[NWJMJKBMBE@C?QEOCKCEASIOIQE_Aa@QECAe@MMEMESGMCGAEAs@QMC?@_@EUGCTGC?DMAe@Cg@Es@EQCGAUAI?Y?OCU?eAAO?kAAy@?A?a@?s@AmBAw@?q@?a@AC?a@?c@Ac@?c@?W?sA?{@A{B?K?Y?cE?_FAaF?O?yAAm@Zy@b@gAh@_Ad@KFYN[ROJKJCBIHEDORQXmA~BwApCUb@ABS\\OTGHi@dAoBhDk@bAS^_@l@iB~COTOXKPIVIRCHCL}@fEG\\K`@Wz@O`@gBrFERADCN?NAJBRDPJb@FZBLPx@Nr@F\\BVDf@?V?PA`@Gb@K\\ENCBGNOP[^uAfAy@n@UP_@VQJQHG@[Jy@Lu@NE@{@Re@J?@a@La@Ny@ZyAv@u@d@aDdCKHOLMNy@bA[`@Y`@MRYf@OZMZUv@{@rCWr@MROROPEDSRGHSRMHYLYHqATm@NwAx@WNa@Zk@\\q@Zs@Zi@PQDSDQ@]@i@C]Ao@EOASAO?"
+                     },
+                     "start_location" : {
+                        "lat" : 33.8560503,
+                        "lng" : -84.3827659
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "266 ft",
+                        "value" : 81
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 79
+                     },
+                     "end_location" : {
+                        "lat" : 33.9052845,
+                        "lng" : -84.4174359
+                     },
+                     "html_instructions" : "Continue onto \u003cb\u003eDupree Dr NW\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "c~|mEzwfbOQAWAa@Ac@@I@M@SB"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9045014,
+                        "lng" : -84.4174151
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.6 mi",
+                        "value" : 1046
+                     },
+                     "duration" : {
+                        "text" : "12 mins",
+                        "value" : 701
+                     },
+                     "end_location" : {
+                        "lat" : 33.9016129,
+                        "lng" : -84.4274721
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eOld Powers Ferry Rd NW\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "_c}mE~wfbOH\\Lf@V~@Fp@D~A@LAvF@\\@j@?BHpADx@Fv@Jl@Rt@Tp@Xj@b@dAPb@Rd@b@fAv@nBd@hA\\x@x@lBd@fAfA|BPXTZt@z@DBZXJNHN@FBF@F?JBN"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9052845,
+                        "lng" : -84.4174359
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.3 mi",
+                        "value" : 477
+                     },
+                     "duration" : {
+                        "text" : "6 mins",
+                        "value" : 334
+                     },
+                     "end_location" : {
+                        "lat" : 33.9049701,
+                        "lng" : -84.43061279999999
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eNorthside Dr NW\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "al|mEtvhbOq@PMDWFIDG@QJEBIDMLCBONe@f@Y\\GD[^WV[Zc@\\YVo@j@i@l@OJ_@^IHMNQRY^cA|AIJ"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9016129,
+                        "lng" : -84.4274721
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.0 mi",
+                        "value" : 1604
+                     },
+                     "duration" : {
+                        "text" : "19 mins",
+                        "value" : 1153
+                     },
+                     "end_location" : {
+                        "lat" : 33.8996478,
+                        "lng" : -84.4463849
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003ePowers Ferry Rd NW\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "aa}mEhjibONPRVT\\NTFHP`@P^d@fAPj@J\\Pt@DPBNF^Fb@BR@HBZB`@B^?N@R@^Ad@?hA?LAl@?r@@\\?LB`@Bd@?DHb@Hj@DPLh@j@xBf@pBt@rCDT`@|AFVFVJ^Jb@f@jBJ`@ZnATx@XdAFXl@zBLf@Lf@Rp@ZnAFTDRFRf@vBH`@d@lBNj@Nf@J^BHb@dAHN\\p@\\r@HLNV"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9049701,
+                        "lng" : -84.43061279999999
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.4 mi",
+                        "value" : 569
+                     },
+                     "duration" : {
+                        "text" : "9 mins",
+                        "value" : 569
+                     },
+                     "end_location" : {
+                        "lat" : 33.9023465,
+                        "lng" : -84.4515165
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003ePowers Ferry Rd\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "y_|mEzllbOCHIVCHADMf@Of@Ux@EPERMn@ENGNO^KZQZ]l@GJQVc@n@IZORGJSZg@v@k@x@MTW`@INQ`@Q\\ADKRO`@KZK\\EPG\\"
+                     },
+                     "start_location" : {
+                        "lat" : 33.8996478,
+                        "lng" : -84.4463849
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.6 mi",
+                        "value" : 2655
+                     },
+                     "duration" : {
+                        "text" : "34 mins",
+                        "value" : 2031
+                     },
+                     "end_location" : {
+                        "lat" : 33.9179293,
+                        "lng" : -84.4666304
+                     },
+                     "html_instructions" : "Slight \u003cb\u003eright\u003c/b\u003e to stay on \u003cb\u003ePowers Ferry Rd\u003c/b\u003e",
+                     "maneuver" : "turn-slight-right",
+                     "polyline" : {
+                        "points" : "up|mE~lmbOGHC@ABCBCTCJEd@ABCj@Af@Ah@?D?t@@N?VBz@?BDn@@\\@h@?P?POlBADMjAIfB?T?NAZ?B?d@?bB?ZA`@?TARCh@?FE`@C^CHIh@AHG\\EPc@xAO^Un@MXOTYx@u@nBc@jAeA`DK\\ITUp@g@hBOd@IVKXADGNITKVEJABOVADGHORUVa@ZUPKHE@_@PE@YNIBeBZ_BVSDuAReANmB\\gCZo@@I?I?]?e@AUAg@Ae@CeAESAaB@c@?U?oA?oA@u@@kABM@G?e@Bs@DYDQBYFkA\\WH_@JQFaAXcAX{@TmBh@s@Rw@RWFa@LYFWFMBk@L_@H"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9023465,
+                        "lng" : -84.4515165
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "69 ft",
+                        "value" : 21
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 26
+                     },
+                     "end_location" : {
+                        "lat" : 33.9177747,
+                        "lng" : -84.46691939999999
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eTerrell Mill Rd\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eTerrell Mill Road SE\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "ar_nElkpbOHRHPJR"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9179293,
+                        "lng" : -84.4666304
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.5 mi",
+                        "value" : 2336
+                     },
+                     "duration" : {
+                        "text" : "30 mins",
+                        "value" : 1781
+                     },
+                     "end_location" : {
+                        "lat" : 33.9339573,
+                        "lng" : -84.4812572
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003ePowers Ferry Rd\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003ePass by Subway (on the right in 0.2 mi)\u003c/div\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "aq_nEfmpbOSBUDQBwBZq@LUBe@H{ATIBwC^WBiARG@I@EAICG@[FCUi@Lm@N_@Le@PEB]JSFs@T{@VWFc@Lc@La@NC@SHc@TSJYTg@ZIFQLKHOLw@p@gA~@g@f@[Ze@b@}@x@]Z[XWVWTk@d@_Av@a@\\gA~@[Vu@n@[Xy@r@]XKJOL}@r@QNYVMJiA`AUPMP[\\QTABOXGHMZg@rACBqAdDGNu@nBe@hAMXu@jB_BfEi@|A_@dAOb@CF_@`AYp@IPMVEFINm@z@mAfA"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9177747,
+                        "lng" : -84.46691939999999
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.7 mi",
+                        "value" : 1154
+                     },
+                     "duration" : {
+                        "text" : "15 mins",
+                        "value" : 870
+                     },
+                     "end_location" : {
+                        "lat" : 33.9434283,
+                        "lng" : -84.4828783
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eLittle Rd\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "gvbnEzfsbOY[u@a@_@Yg@[WKAAq@Ok@CeAHeD^sAJu@FwAHwDRuDZWb@GHY`@Yd@CDm@~@Q\\KTEFm@bA[XMHa@Ha@?K?{@AgAAc@?qAAkA?kBAU?"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9339573,
+                        "lng" : -84.4812572
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "397 ft",
+                        "value" : 121
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 87
+                     },
+                     "end_location" : {
+                        "lat" : 33.9433918,
+                        "lng" : -84.48156999999999
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e toward \u003cb\u003eLucky Ct SE\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "mqdnE~psbO@c@?_@?S@K?]?]@M?O@gA"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9434283,
+                        "lng" : -84.4828783
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "157 ft",
+                        "value" : 48
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 38
+                     },
+                     "end_location" : {
+                        "lat" : 33.9438177,
+                        "lng" : -84.4814944
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eLucky Ct SE\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "eqdnExhsbOW?MAOASGKC"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9433918,
+                        "lng" : -84.48156999999999
+                     },
+                     "travel_mode" : "WALKING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "afamErzabOKWkBA_BAcCIcACG[FBIOPIHWWg@gC}CqEcFuBmAs@QqAG}EAkC?SABEUACa@a@?c@CW?gDGy@?k@HsBCqBCcDDsAAUEa@BsEAi@GkB@WAu@CwA?UD]Ig@FcAAc@IEFU?m@BAI}@FaACgA?aBBUFsCPqBX_BNq@LaABeE@mDC{B@mG?}DDiBEmELsFBeD?uCIoIQsPSUAD`@uACcC@YCu@Pe@dBq@tAkBbDaCjDqCpBo@b@s@NaCb@cAF{CHmA?g@Hu@PyCf@e@LkEhAsD~@YJsAFuCUiCUgC]iCw@cEqAeHuBqCSiA\\sA^qAIiAYYU_ASwAg@s@[gAo@g@c@kAoAi@}@oBuBcDkCaCqAm@SyFaAwCm@sE_A_IiBKCDk@uAEoF?aK@mG?wCEuBBw@IcAu@kCmCgDkDcAaAcAqA{BsBoAwA_BiBe@c@gCqA}Ay@w@]g@GQQw@QkAc@oBw@wDqA{BaAuBcBgBwAIhAE@Ue@iDkAcDiA?JWMKCkA[oAIaAD{Bb@cAPSLyBx@sDnDkAlAcAr@iDjCeBhA{@XyDz@_Fn@aEd@eCJmJaAw@?QGs@CyDDyADgDEWIHQWLIDADE`@Y^cAhAsDpEYb@W~@Q^a@`@gA|BcC`C?IKHO?ATDDe@`@oCbCmCbC_FnE}EjFoAdAyAv@gBr@yErAqRrGgNhEgCfA{F~GY^[\\cEzFc@h@eAj@m@Tq@MwDsAmCq@_@CUGCTG@MAsCSaACeHGwJGac@EaIfE_@^gE~HiGxK}EzImA|F{CrJKx@RtAl@vCPtBUtBa@t@kDvCyA~@uE`AiBj@sCrAwEjDcBjB}A~BoBbGeAlBu@v@sCv@eChAy@j@{DfBuANgCM}CCa@DVdA^pBFlB@dIb@pFfBxE`C`GbDxHxAvCjAvAl@l@Pf@BZ_AV{@ZyBvBwFnFiAlA}A|BIJNPh@t@V^zAtD|@vELpGFhFvD`PxCnL~H`[|@~BtAjCmAlEa@bBkAdCgAnBsArBmCzEcAzC[lELpFMzDYnEClG]zDs@rCcA~ByDvKsAnEkAfD[j@}AxAw@^iFfA}GfAkE\\cJOqJHeCR}Cz@eMjDaB`@kAVRd@JRSBg@HeFv@wJrAQA[FCUwA\\eA^kBl@{Cz@}Ap@_BdAwG~F_RbPaGjFwDvIqIzTuB`F{BbCoA}@aBcA}ASkFh@yKp@uDZWb@a@j@}AhC{AzBo@Rm@?yFEwDAU?@c@?s@@i@BcCuAO"
+         },
+         "summary" : "Powers Ferry Rd NW",
+         "warnings" : [
+            "Walking directions are in beta. Use caution \u2013 This route may be missing sidewalks or pedestrian paths."
+         ],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

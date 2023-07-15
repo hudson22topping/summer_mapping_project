@@ -1,0 +1,300 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJJ1oXZ34E9YgRGnjO58ftRQQ",
+         "types" : [ "premise" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJT3oQxdQT9YgRSCFKlX0fMDo",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 33.9516192,
+               "lng" : -84.3894957
+            },
+            "southwest" : {
+               "lat" : 33.7609875,
+               "lng" : -84.50275479999999
+            }
+         },
+         "copyrights" : "Map data \u00a92023 Google",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "17.0 mi",
+                  "value" : 27363
+               },
+               "duration" : {
+                  "text" : "22 mins",
+                  "value" : 1322
+               },
+               "end_address" : "2450 Lower Roswell Rd, Marietta, GA 30068, USA",
+               "end_location" : {
+                  "lat" : 33.9438177,
+                  "lng" : -84.4814944
+               },
+               "start_address" : "121 Baker St NW, Atlanta, GA 30313, USA",
+               "start_location" : {
+                  "lat" : 33.7622839,
+                  "lng" : -84.3922582
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "69 ft",
+                        "value" : 21
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 7
+                     },
+                     "end_location" : {
+                        "lat" : 33.7622884,
+                        "lng" : -84.3920263
+                     },
+                     "html_instructions" : "Head \u003cb\u003eeast\u003c/b\u003e on \u003cb\u003eBaker St NW\u003c/b\u003e toward \u003cb\u003eCentennial Olympic Park Dr NW\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "geamErzabOAm@"
+                     },
+                     "start_location" : {
+                        "lat" : 33.7622839,
+                        "lng" : -84.3922582
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "472 ft",
+                        "value" : 144
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 45
+                     },
+                     "end_location" : {
+                        "lat" : 33.7609897,
+                        "lng" : -84.39204409999999
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e at the 1st cross street onto \u003cb\u003eCentennial Olympic Park Dr NW\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "ieamEdyabOl@AN@@?T?N@h@?x@?f@?P?"
+                     },
+                     "start_location" : {
+                        "lat" : 33.7622884,
+                        "lng" : -84.3920263
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "453 ft",
+                        "value" : 138
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 38
+                     },
+                     "end_location" : {
+                        "lat" : 33.7609875,
+                        "lng" : -84.39055119999999
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eJohn Portman Blvd NW\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "e}`mEfyabO?eA?k@?aB?uA"
+                     },
+                     "start_location" : {
+                        "lat" : 33.7609897,
+                        "lng" : -84.39204409999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.3 mi",
+                        "value" : 410
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 114
+                     },
+                     "end_location" : {
+                        "lat" : 33.7646548,
+                        "lng" : -84.3903564
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eWilliams St NW\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "e}`mE|oabOO?u@?Q?cB?eA?c@?g@?o@A_@?Y?C?WCUAIACAEAGCGCEAAAE?OCMAKAMAIAc@?]?{@?"
+                     },
+                     "start_location" : {
+                        "lat" : 33.7609875,
+                        "lng" : -84.39055119999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.8 mi",
+                        "value" : 2928
+                     },
+                     "duration" : {
+                        "text" : "3 mins",
+                        "value" : 152
+                     },
+                     "end_location" : {
+                        "lat" : 33.7907482,
+                        "lng" : -84.3908137
+                     },
+                     "html_instructions" : "Take the ramp onto \u003cb\u003eI-75 N\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eI-85 N\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "atamEvnabO_AASKC?A?AAC?u@AO?S?QAI?G?Q?MIgAUs@OQE_@Ie@ISG[GSGe@KWGOCa@IOEC?MCAAMA]EI?A?CAI@[?G?S@O@OBQBE@IBG@KBODQDE@sAZC@I@M@M@K?K?E?iA@]?E?q@?kABQ?i@?m@@q@@A??@WZuAEqACk@?i@@e@?]@i@B]De@DYBiAP_AJs@JSBo@HQBeC\\mANmALYBcBJoBFk@@c@@q@@eB?{@?_@@s@AW?{@?K?{AAkBCkB?K?W?M?A?e@?Q?{@?K?[?A?g@AA?c@?e@?S?g@?gA@sAAuEAQ?m@?I?O?C?S?A?A?G?gA?kBCE?C?_B?M?s@C_A@_B?aA?cB?G?U?W?Y?]?"
+                     },
+                     "start_location" : {
+                        "lat" : 33.7646548,
+                        "lng" : -84.3903564
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "12.1 mi",
+                        "value" : 19487
+                     },
+                     "duration" : {
+                        "text" : "11 mins",
+                        "value" : 657
+                     },
+                     "end_location" : {
+                        "lat" : 33.9347055,
+                        "lng" : -84.49415490000001
+                     },
+                     "html_instructions" : "Keep \u003cb\u003eright\u003c/b\u003e to continue on \u003cb\u003eI-75 N\u003c/b\u003e",
+                     "maneuver" : "keep-right",
+                     "polyline" : {
+                        "points" : "ewfmEpqabOSIA?QAq@AS?E?I?_@@M?m@?G@Y?[?sA@G?a@?O@S?O@g@BG?_@DUBG?KBE?E@MBMBSDEBKBSDSHMDIDE@C@QHWNSJSNEBe@^IJs@x@ORQVQZKVa@`ASj@Q^GNEJEJ?@O\\Q^GNIPKTKPW`@Yb@IJGFCDSTSTOPKHGFKHCBIFQN]T[Va@TULIDUJOHA@e@Tg@VMFOHWLMHg@XCBc@Zc@\\UR]ZOPOPQRKP[b@]n@Yj@Uj@Sn@IVGPAFEN?@K`@GZEPEVOfAE\\CVE\\C^CRGn@CREd@CTCVCXCJEd@Gr@CXEVGp@S~BIp@AL]pDIl@Il@QjAEVEXEVEXMn@Mp@Mn@UhAAB_@|AGVK\\EPQn@Mh@Ut@ITo@~Bk@tBk@lBo@~BENUx@Wz@Sn@IVQd@ITCFIVUj@Uj@ITKVYn@cA~Bc@`AWj@Wj@KRABSb@]p@Yf@[j@Yd@[h@MPGHABc@l@CBY`@[`@STMNYZ_@b@e@d@a@^ILo@l@q@h@m@d@SNc@ZGDWPQLSJQLSJ[P_@P[N[Ni@XGBa@Ps@\\{@`@k@T{@`@GB[NMDw@\\WJk@TUJSHKDWHe@P]Nu@V]JOFYJo@Rg@Nc@Nm@PE@u@RoA^g@Lm@Nw@R]HUFOBUFg@Jk@L]FoAT_API@_@FC@a@FA?]F]D[Fi@FuAP_ALo@FoANo@FaAL[BkANoALUD]Dc@D]Dk@H[Fc@Fe@He@HgATm@JQDa@H[Hc@J_AReATk@LUFeB`@k@L}A\\UFoAXi@L[Hu@POBm@Nc@JWFeAXE?o@RKB{C`Ai@Rc@NWHcA^}@\\eA`@u@Ze@Pc@PmAd@sBv@m@T_C|@[LWH_@NGBeA`@_@NeA`@q@VSHWH_@Ni@RMFe@POF_@NKDKDaBl@_@Li@Pm@Pe@NI@MDo@Na@Hk@JMB}@L{@JE?k@H]BW@e@BQ@U@m@@a@@G?W?I?_@?s@AYAQ?SAi@EO?y@Gi@C_@Ce@EI?eBIW?MAW?IAy@@c@?}@DiAH[DWBi@Jc@HUDMBI@QDaATc@JYFGBmBb@s@Pq@LSBWF{@JUBG@_@Da@B_@B[Ay@@O?M@{A@o@@_B?U?G?a@@k@?o@BU@e@BeAJKBYBYDG@SDOBWFWDSFe@H]H[HOB]HYFe@Ja@Jc@HODQDUDWFe@Ja@HUFcATA@[HWHc@La@Li@Ru@XOHYLc@RYLSLQH]Rg@XWNIFGDMHa@XEBUPWPSRUP[TGFk@d@a@\\URs@l@s@l@o@h@MHk@f@{@r@g@`@w@p@URi@d@s@l@sAfAYVo@h@EDYTe@`@]Xa@\\YTGFaAx@OHONQLONQNSNc@^uBfB]XQNED_@XONOLQNQLONUROJ_@Zc@^QLQNOLQLQNKHEBQLQLOLSLQLQJSNQJQLSJQLQHSLSJQJQJQJUJQHOHULSHSHQHQHSJUHQHA@QHSHQHSHSJUHSJWJMFQHSHSHSJSHSJSJQHQJSJQHSLQJSLSLQJOJSNQLQLQLOLSNOLQNOLQNQNONQPONONONOPKJEB?@ONONQPONON?@ONEDIHOPOLa@b@q@r@a@`@_@^a@b@cAbAMLQPc@d@a@b@o@n@SReCfCGFWXa@`@q@p@_@`@a@`@a@b@a@\\a@`@QPONOLQNONQNQNQPQN_@\\[XEDQNONQNQNOLQPQNs@l@a@^QNONQNu@p@_@\\QNQNQNOLQNONOLONQNSNONQLEDKJQLQNQNWR[VQNa@ZSNc@^a@ZIHIFa@\\c@\\a@Zm@d@KJEBQLEDKHOLGDIFa@\\c@\\c@\\k@b@m@d@c@Zc@\\YR}@r@[VGDe@ZSNKHi@`@MHw@j@c@\\[TWRa@Zg@^g@^yArAo@b@g@`@[Tc@^[Tq@d@k@`@y@j@_B`Aw@d@cBdA_Aj@UN_@TWP]VC@UPa@ZYT[VIFg@b@o@l@C@]^qAtAMP]b@SXGHMRORKNOTMTILMPMTMTWd@OTOVGJWb@_@n@KPOZOTYf@c@v@Yd@MT]n@[f@Wb@MVMPMTKRMRKPi@|@U`@A@Wb@S\\INOVILORMTMNMRQVQTOT[`@OROROP]`@MPQROPQPOP_@`@a@`@[ZA??@A?[CCLABA@OPIHMJMJUR_@X[VQNYTu@h@UNOLOHSLSLQJOHUNUNOFOHSHOHUJQHQFWJOFQHG@MFSFIDODMFUHQF[LQFYDQFUJSFSHSHQHSHSHQHSHUJSJOFC@SHQHSJQHMFGBSHOHSHUJOHC@OHSHSJWJSJQHUJe@TGBm@XUJg@TQJe@Ri@Ve@Te@Re@RWLQH_@PQHSJSJk@Vu@\\UJc@Ry@`@C@w@\\YLMHSHSHa@RQHg@TkAh@g@Tg@TID]N_Bp@sNdHEBYNOFQHs@\\UL_@ROHm@ZGBw@b@A@_Ah@MF}@h@QHSLSLQHSLSLc@TULOHCBOHSJQJSJSLQHEBMFSJSJSJQHSJSJKDEBSJSHEBMFSHQJi@TQHA@QHSHe@TSJE@KFQHWLSJmAh@EBKDUJSJQHSJUHQJSHOHC@UJQHQHUJQHe@TUJOFk@Ve@TSJOHC@SHQHSJUJSHQJSHC@OHSHQHUJSJOHA?QHUJUJOHE@OHSJQHUJSHQHSJUJQHg@TQJUJQHUJGBKDQHe@TSJUJQHQJg@VGBKDc@VWLQJIFYPSLQJQJSLGDIFQLQLQLe@\\OJSNQLOLQNMJCBQNQNMLSNONQNQPONOLQRONONQRONONCBKLOPKLONKJIJMPMPOPOREDGJOPMPORMRMNOTMPMRMROTOVOVYb@"
+                     },
+                     "start_location" : {
+                        "lat" : 33.7907482,
+                        "lng" : -84.3908137
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.5 mi",
+                        "value" : 791
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 29
+                     },
+                     "end_location" : {
+                        "lat" : 33.9392195,
+                        "lng" : -84.5007272
+                     },
+                     "html_instructions" : "Take the exit toward \u003cb\u003eGA-120\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eSouth Marietta Pkwy SE\u003c/b\u003e",
+                     "maneuver" : "ramp-right",
+                     "polyline" : {
+                        "points" : "}zbnElwubOK@GBGBGDILWb@]p@q@jAmA~Bi@~@g@bAa@t@Yd@[j@_@h@g@x@iAdBg@v@o@dAcA`Be@v@kB~Ca@p@MRGN"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9347055,
+                        "lng" : -84.49415490000001
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.0 mi",
+                        "value" : 1614
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 116
+                     },
+                     "end_location" : {
+                        "lat" : 33.9513856,
+                        "lng" : -84.4977074
+                     },
+                     "html_instructions" : "Keep \u003cb\u003eright\u003c/b\u003e, follow signs for \u003cb\u003eGA-120 E\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eRoswell\u003c/b\u003e and merge onto \u003cb\u003eGA-120\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eSouth Marietta Pkwy SE\u003c/b\u003e",
+                     "maneuver" : "keep-right",
+                     "polyline" : {
+                        "points" : "cwcnEp`wbOKFGFGHEDcAxAa@d@UVUVKJQRa@`@o@n@]\\WTIDKFEBE@A?KBIBG@I@K?K?CAG?EAGAIEICGEGEEEEEEGCCKQKUYo@GQEGIGMI[aAUk@O_@Um@IOKYUk@M]Qa@KYSg@EGMYEGOUQSOQUSOMQMCCOIOIUKOGUGQECAm@Ik@AmBCsC@_@?c@?eA?M?U?gAAsA?o@?s@Aa@C]EWCWEg@Ki@OwDeA{@Ui@OoBe@"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9392195,
+                        "lng" : -84.5007272
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.1 mi",
+                        "value" : 1737
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 132
+                     },
+                     "end_location" : {
+                        "lat" : 33.9445697,
+                        "lng" : -84.4810603
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eLower Roswell Rd\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003ePass by Bruster's Real Ice Cream (on the right in 0.3 mi)\u003c/div\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "ecfnEtmvbOSWGIGMIUPg@L_@b@sAXw@\\iAh@aBHUj@iB^iAJWVy@j@iBHSFSZ{@d@wA`@kA^mA@ADQVw@Pm@^qAHWTo@FQb@kAj@kBf@{APe@`BeFd@uAhAiD^kAp@qBj@eBTo@\\eAFUl@kB`@kAl@gB^eAh@_BfAcD"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9513856,
+                        "lng" : -84.4977074
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "305 ft",
+                        "value" : 93
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 32
+                     },
+                     "end_location" : {
+                        "lat" : 33.9438177,
+                        "lng" : -84.4814944
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eLucky Ct SE\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "qxdnEresbOr@^NLXNJFTFPFB?"
+                     },
+                     "start_location" : {
+                        "lat" : 33.9445697,
+                        "lng" : -84.4810603
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "geamErzabOAm@l@AP@hC@x@??qB?wDeA?_F?wBA]?m@ESEWKo@GyAC{BAWK}@C_AAY?MIgAUeAUeASiBc@iAUc@Ku@GO?gABq@Lu@PgB`@s@BmHDaBDWZuAE}BCwCFgD`@wDd@sH~@}BN{CHwFBgNEgD?uSC{B?uECaFAcE?q@?]?SISAeAA}@@iFB{AF}@HuAVaAXe@ReAn@o@j@s@x@a@j@]r@oA|C_AxBWf@q@dAi@n@w@x@k@d@y@l@w@b@q@\\kB~@qAt@gAx@s@n@}@hAy@rAo@vAe@xASz@c@lCc@jEg@lFk@zFs@zGc@tCo@jD_AbEq@hCsFxRgAhDWt@aAdCyC|Gy@fBmBjDs@hA}AtB{AdBaC`CwCzBeAp@aB|@iB|@kHbDoFvBwGzByDfAkDz@cB^yE|@iDh@oFn@}Eh@oEh@iC\\wDp@}Bd@{MxCcIjBsCt@uFhBmLnE_VbJaBn@wDrAkBh@kCh@kDb@mBJmBDuBA}FYmDOiBAaBDeBN{B^_H|AqCj@yBVaAFuA?iDD_D@{AB{@DeCXcARsE`AaFfA}Bh@yBn@iCdAcBx@gBdA}@l@wAhAqB`BkI`HoIhH_CnBsB`BoGnF{HpG}BbBuCfBwC|AiChAyHhDwC`BoCnBgC|BaBbB{JbKaIhImGlGqG|F{JzIyBlBqDtCgItGeHpF_FrDoCrBiAz@aCrBwAdA_At@sDhCgLhHuAdA}BpBa@`@_BfBgAzAmBzC{InOoCxEoBbDkCpD_DpD_A|@]AEPQR{@t@gBvA{AfAuCbBuCnAyBx@m@Tk@LoAd@}CrA{FhCuMdGqMdGuGxC}B`AyNhHoB~@uFzC_E|BcCrAiCrAqGxCaJfEaRrI_IrD}CvAmDhBaCzAaD~ByBlBgCfCgBlBcBxBsBxCiAhBSDOHqBnDaExH}BtDeFdIaE|GGNKFOPkBdCiAnAqApAu@r@a@R_@He@?_@I_@U[c@s@_BWQq@mB{@wBaAeCm@qAa@i@e@e@u@i@kAe@UGm@Ik@AaGAcA?qDAcC?uAEu@I_AQgI{BoBe@SWOWIUPg@p@sBjByFhEsMhBsFnAiEjAeDfEsMhHoT|CeJpBcGbAl@d@Vf@NB?"
+         },
+         "summary" : "I-75 N",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}
