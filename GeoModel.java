@@ -5,20 +5,24 @@ import java.util.List;
 
 public class GeoModel {
 
-    WeightedGraph overallGraph = new WeightedGraph();
+    WeightedGraph geographicMap = new WeightedGraph();
     List<WeightedGraph> routeList = new ArrayList<>();
     WeightedGraph.Vertex originVert;
     WeightedGraph.Vertex destinationVert;
+    RouteRequest modelRouteRequest;
 
 
     public GeoModel() {
     }
     public GeoModel(RouteRequest rr) {
-        createGeoModel(rr.getOrigin(), rr.getDestination(), rr.getModePrefAsList());
+        modelRouteRequest = rr;
     }
 
 
-    public WeightedGraph createGeoModel(String origin, String destination, List<String> modes) {
+    public WeightedGraph generateGeoModel() {
+        String origin = modelRouteRequest.getOrigin();
+        String destination = modelRouteRequest.getDestination();
+        List<String> modes = modelRouteRequest.getModePrefAsList();
         RouteRequest tempRequest = new RouteRequest();
         WeightedGraph coreRoute = removeAdjacentSameModeEdges
                 (tempRequest.getAPIWeightedGraph(origin, destination, "transit"));
@@ -32,12 +36,12 @@ public class GeoModel {
                 WeightedGraph legRoute = tempRequest.getAPIWeightedGraph(legStart, legEnd, loopMode);
                 legRoute = GeoModel.removeAdjacentSameModeEdges(legRoute);
                 this.routeList.add(legRoute);
-                this.overallGraph.addGraph(legRoute);
+                this.geographicMap.addGraph(legRoute);
             }
-            overallGraph = GeoModel.removeDuplicateVertices(overallGraph);
+            geographicMap = GeoModel.removeDuplicateVertices(geographicMap);
         }
-        //Todo - add getLegRoutes to createGeoModel method
-        return overallGraph;
+        //FixMe - some vertices have only one edge
+        return geographicMap;
     }
     public static WeightedGraph removeAdjacentSameModeEdges(WeightedGraph route) {  // considering routes non-branching
         String lastMode = "";

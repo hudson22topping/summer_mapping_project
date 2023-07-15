@@ -7,6 +7,7 @@ public class RouteAnalyzer {
 
     static WeightedGraph routeModel = new WeightedGraph();
     RouteRequest userRequest = new RouteRequest();
+    List<WeightedGraph> allPaths = new LinkedList<>();
 
 
     public RouteAnalyzer(WeightedGraph routeModel, RouteRequest userRequest) {
@@ -14,7 +15,7 @@ public class RouteAnalyzer {
         this.userRequest = userRequest;
     }
 
-    public LinkedList<WeightedGraph> findRoutes() {
+    public LinkedList<WeightedGraph> getRoutesAsWeightedGraph() {
         LinkedList<WeightedGraph> routeOptions = new LinkedList<>();
 /*        for (int i = 0; i < userRequest.modePref.length; i++) {
             if (userRequest.modePref[i] == 3) {
@@ -22,14 +23,15 @@ public class RouteAnalyzer {
             }
         }
         if (routeOptions.size() > 2) {
+
             // No need for additional analysis
             return routeOptions;
         } else {
             // getBestGeneralRoute
             // Todo - Implement the logic to get the best general route based on user preferences and priority
-
  */
-            routeOptions.addAll(getMultiModalBestPath(routeModel, userRequest.modePref, userRequest.origin, userRequest.destination));
+
+        routeOptions.addAll(getAllPaths(userRequest.modePref, userRequest.origin, userRequest.destination));
 
         return routeOptions;
     }
@@ -98,7 +100,7 @@ public class RouteAnalyzer {
     }
 
  */
-    public List<WeightedGraph> getMultiModalBestPath(WeightedGraph weightedGraph, int[] modePref, String origin, String destination) {
+    public List<WeightedGraph> getAllPaths(int[] modePref, String origin, String destination) {
         List<String> allowableModes = new ArrayList<>();
 
         // Map the mode preferences to the corresponding modes
@@ -114,7 +116,7 @@ public class RouteAnalyzer {
         //WeightedGraph.Vertex endVertex = weightedGraph.getVertex(destination);
 
         Set<WeightedGraph.Vertex> visited = new HashSet<>();
-        List<WeightedGraph> bestPaths = new ArrayList<>();
+
 
         //WeightedGraph.Vertex startVertex;
         WeightedGraph.Vertex startVertex = routeModel.vertexList.get(0);
@@ -122,36 +124,35 @@ public class RouteAnalyzer {
         WeightedGraph.Vertex endVertex;
         endVertex = routeModel.vertexList.get(routeModel.vertexList.size()-1);
 
-        bestPaths = findMultiModalPaths(startVertex, endVertex, allowableModes, new WeightedGraph(), visited, bestPaths);
+        getAllPathsFromHere(startVertex, endVertex, allowableModes, new WeightedGraph(), visited);
 
-        return bestPaths;
+        return allPaths;
     }
 
-    public List<WeightedGraph> findMultiModalPaths(WeightedGraph.Vertex currentVertex,
+    public void getAllPathsFromHere(WeightedGraph.Vertex currentVertex,
                                     WeightedGraph.Vertex endVertex,
                                     List<String> allowableModes,
                                     WeightedGraph currentPath,
-                                    Set<WeightedGraph.Vertex> visited,
-                                    List<WeightedGraph> bestPaths) {
+                                    Set<WeightedGraph.Vertex> visited) {
         visited.add(currentVertex);
         currentPath.addLastVertex(currentVertex);
 
         if (currentVertex.equals(endVertex)) { // confirm that this is true on "D" iteration
-            bestPaths.add(currentPath);
+            allPaths.add(allPaths.size(), currentPath);
+            visited.remove(currentVertex);
+            currentPath.removeLastVertex();
         } else {
             List<WeightedGraph.Edge> adjacentEdgeList = currentVertex.getOutgoingEdges(this.routeModel.edgeList);
             for (WeightedGraph.Edge edge : adjacentEdgeList) {
                 WeightedGraph.Vertex neighbor = edge.getEnd();
                 if (!visited.contains(neighbor) && allowableModes.contains(edge.getMode())) {
                     currentPath.addLastEdge(edge);
-                    findMultiModalPaths(neighbor, endVertex, allowableModes, currentPath, visited, bestPaths);
+                    getAllPathsFromHere(neighbor, endVertex, allowableModes, currentPath, visited);
                     currentPath.removeLastEdge();
                 }
             }
         }
-        visited.remove(currentVertex);
-        currentPath.removeLastVertex();
-        return bestPaths;
+
     }
 /*
     private List<String> getAvailableModes(UserAccount userAccount) {

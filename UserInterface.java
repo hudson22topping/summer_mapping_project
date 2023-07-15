@@ -90,10 +90,9 @@ public class UserInterface {
                 sessionRequest.setDestination(getStringFromConsole());
         }
         System.out.println("Ok " + acct.getUID() + ", this is your request:" +
-                "\nOrigin:     " + sessionRequest.getOrigin() +
-                "\nDestination:" + sessionRequest.getDestination() +
-                "\nPreferences:" + sessionRequest.getModePrefAsList() +
-                "\nPriority:   " + sessionRequest.getPriority());
+                "\nOrigin:       " + sessionRequest.getOrigin() +
+                "\nDestination:  " + sessionRequest.getDestination() +
+                "\nPreferences:  " + sessionRequest.getModePrefAsList());
 //todo - fix priority null
         return sessionRequest;
     }

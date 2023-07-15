@@ -39,9 +39,11 @@ public class TaasApplication {
         session.instanceUI = new UserInterface();
         session.instanceRR = session.instanceUI.getRequest();
         session.instanceGM = new GeoModel(session.instanceRR);
-        session.instanceRA = new RouteAnalyzer(session.instanceGM.overallGraph, session.instanceRR); // comment
-        session.instanceGM.overallGraph.printGraph();
-        session.instanceRouteOffering = session.instanceRA.findRoutes(); // comment
+        session.instanceGM.generateGeoModel();
+        session.instanceGM.geographicMap.printGraph();
+        session.instanceRA = new RouteAnalyzer(session.instanceGM.geographicMap, session.instanceRR); // comment
+
+        session.instanceRouteOffering = session.instanceRA.getRoutesAsWeightedGraph(); // comment
         System.out.println("Done");
 //          chosenRoute = instanceUI.getUsersChoiceOfRoute(session.instanceRouteOffering);
 //          instanceUI.displayRoute(chosenRoute);
